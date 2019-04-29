@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>7-세그먼트(FND) 사용하기 | de la Cruz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Arduino">
+    
+    <meta name="description" content="7 Segment (FND) 7 Segment(FND)는 숫자나 문자를 표현하는 7개의 LED와 소수점을 표현하는 1개의 LED가 포함되어 있는 부품을 의미합니다. FND는 16X2 LCD와 비교할 때 표현할 수 있는 문자의 개수가 제한되고, 각 문자의 표현을 위하여 총 8개의 LED를 하나씩 조절해주어야 하는 등 사용이 복잡하다는 단점이 있습니다. 그렇지">
+<meta name="keywords" content="Arduino">
+<meta property="og:type" content="article">
+<meta property="og:title" content="7-세그먼트(FND) 사용하기">
+<meta property="og:url" content="http://chemidot.github.io/2017/11/12/2017-11-12-7-세그먼트-사용하기/index.html">
+<meta property="og:site_name" content="de la Cruz">
+<meta property="og:description" content="7 Segment (FND) 7 Segment(FND)는 숫자나 문자를 표현하는 7개의 LED와 소수점을 표현하는 1개의 LED가 포함되어 있는 부품을 의미합니다. FND는 16X2 LCD와 비교할 때 표현할 수 있는 문자의 개수가 제한되고, 각 문자의 표현을 위하여 총 8개의 LED를 하나씩 조절해주어야 하는 등 사용이 복잡하다는 단점이 있습니다. 그렇지">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://i.imgur.com/tl3YqLX.jpg">
+<meta property="og:updated_time" content="2017-12-15T06:03:22.372Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="7-세그먼트(FND) 사용하기">
+<meta name="twitter:description" content="7 Segment (FND) 7 Segment(FND)는 숫자나 문자를 표현하는 7개의 LED와 소수점을 표현하는 1개의 LED가 포함되어 있는 부품을 의미합니다. FND는 16X2 LCD와 비교할 때 표현할 수 있는 문자의 개수가 제한되고, 각 문자의 표현을 위하여 총 8개의 LED를 하나씩 조절해주어야 하는 등 사용이 복잡하다는 단점이 있습니다. 그렇지">
+<meta name="twitter:image" content="https://i.imgur.com/tl3YqLX.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="de la Cruz" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">a la fecha</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/과학/">과학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/놀이터/">놀이터</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/미니노트/">미니노트</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알쓸신잡/">알쓸신잡</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/렛츠아두이노/">렛츠아두이노</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2017-11-12-7-세그먼트-사용하기" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        7-세그먼트(FND) 사용하기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/11/12/2017-11-12-7-세그먼트-사용하기/" class="article-date">
+            <time datetime="2017-11-12T09:27:53.000Z" itemprop="datePublished">2017-11-12</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Arduino/">Arduino</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="7-Segment-FND"><a href="#7-Segment-FND" class="headerlink" title="7 Segment (FND)"></a>7 Segment (FND)</h3><hr>
+<p>7 Segment(FND)는 숫자나 문자를 표현하는 7개의 LED와 소수점을 표현하는 1개의 LED가 포함되어 있는 부품을 의미합니다. FND는 16X2 LCD와 비교할 때 표현할 수 있는 문자의 개수가 제한되고, 각 문자의 표현을 위하여 총 8개의 LED를 하나씩 조절해주어야 하는 등 사용이 복잡하다는 단점이 있습니다. 그렇지만, 전력소모가 적고  크기가 큰 Segment를 선택하면 비교적 큰 문자도 표현할 수 있다는 장점이 있어 널리 사용되고 있습니다.</p>
+<h4 id="숫자표시"><a href="#숫자표시" class="headerlink" title="숫자표시"></a>숫자표시</h4><p><img src="https://i.imgur.com/tl3YqLX.jpg" alt="Segment Pin"></p>
+<p><img src="https://i.imgur.com/ts0isLt.jpg" alt="7-Segment"></p>
+<table>
+<thead>
+<tr>
+<th>Num</th>
+<th>DP</th>
+<th>G</th>
+<th>F</th>
+<th>E</th>
+<th>D</th>
+<th>C</th>
+<th>B</th>
+<th>A</th>
+<th>2진수</th>
+<th>16진수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0b11000000</td>
+<td>0xC0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0b11111001</td>
+<td>0xF9</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0b10100100</td>
+<td>0xA4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0b10110000</td>
+<td>0xB0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0b10011001</td>
+<td>0x99</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0b10010010</td>
+<td>0x92</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0b10000010</td>
+<td>0x82</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0b11111000</td>
+<td>0xF8</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0b10000000</td>
+<td>0x80</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0b10010000</td>
+<td>0x90</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>10진수 숫자와의 구분을 위해 2진수 앞에는 0b, 16진수 앞에는 0x를 표기합니다.</li>
+<li>16진수 표현에 있어서, 각 숫자에 소수점을 포함시키는 경우에는 80을 빼주면 됩니다. 예를 들어서<ul>
+<li>0． → 0xC0 - 0x80 = 0x40          1． → 0xF9 - 0x80 = 0x79         2． → 0xA4 - 0x80 = 0x24</li>
+<li>3． → 0xB0 - 0x80 = 0x30          4． → 0x99 - 0x80 = 0x19         5． → 0x92 - 0x80 = 0x12</li>
+<li>6． → 0x82 - 0x80 = 0x12          7． → 0xF8 - 0x80 = 0x78         8． → 0x80 - 0x80 = 0x00</li>
+<li>9． → 0x90 - 0x80 = 0x10</li>
+</ul>
+</li>
+</ul>
+<h4 id="Pin-Map"><a href="#Pin-Map" class="headerlink" title="Pin Map"></a>Pin Map</h4><table>
+<thead>
+<tr>
+<th>7 Segment</th>
+<th>Arduino</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>2</td>
+</tr>
+<tr>
+<td>B</td>
+<td>3</td>
+</tr>
+<tr>
+<td>C</td>
+<td>4</td>
+</tr>
+<tr>
+<td>D</td>
+<td>5</td>
+</tr>
+<tr>
+<td>E</td>
+<td>6</td>
+</tr>
+<tr>
+<td>F</td>
+<td>7</td>
+</tr>
+<tr>
+<td>G</td>
+<td>8</td>
+</tr>
+<tr>
+<td>DP</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<h4 id="FND의-종류"><a href="#FND의-종류" class="headerlink" title="FND의 종류"></a>FND의 종류</h4><p>FND는 Anode형과 Cathode형으로 분류되며, 이 중 Anode형이 주로 사용되고 있는데요. Anode형은 중앙핀이 VCC이며, Cathode형은 GND입니다. 우리가 사용하는 것은 5611BH로 Common Anode형입니다. </p>
+<h3 id="기본-회로"><a href="#기본-회로" class="headerlink" title="기본 회로"></a>기본 회로</h3><hr>
+<p><img src="https://i.imgur.com/Hc8px0P.jpg" alt="Anode형 7-Segment"></p>
+<p>위 회로에서는 330Ω 저항 1개를 VCC에 직접 연결하여 사용하였습니다.  상단부와 하단부 중앙핀은 서로 연결이 되어 있으므로, 둘 중 하나만 +5V에 연결하여 사용하면 됩니다.</p>
+<h4 id="주의-사항"><a href="#주의-사항" class="headerlink" title="주의 사항"></a>주의 사항</h4><p>위의 회로에서는 간단한 회로 구성을 위해 VCC에 저항을 직접 연결하여 사용하였으나, 이것이 좋은 방법은 아닙니다. FND의 각 LED가 직렬이 아닌 병렬로 연결되어 있는데요. 동일한 전류로 “1”를 표시할때는 2개의 Segment만 켜고, “8”을 표시할때는 7개의 Segment를 모두 키므로, 각 숫자마다 밝기의 차이가 생기길 수 있기 때문입니다. 실제 LED의 밝기에 미세한 변화가 생기는 것을 볼 수 있습니다.</p>
+<p>각 LED마다 저항을 따로 사용하여야 밝기를 고르게 유지할 수 있으며, 이를 위해 아래 그림과 같이 220~330Ω 저항 8개를 사용하는 것이 원칙입니다.</p>
+<p><img src="https://i.imgur.com/WkqcRC7.jpg" alt="저항 연결"></p>
+<h4 id="sketch"><a href="#sketch" class="headerlink" title="sketch"></a>sketch</h4><ul>
+<li>숫자 0~9까지 차례대로 표시하기</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> A = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> B = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> C = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> D = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> E = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> F = <span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> G = <span class="number">8</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> DP = <span class="number">9</span>;</span><br><span class="line"><span class="keyword">int</span> dt = <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123;</span><br><span class="line"><span class="built_in">pinMode</span>(A, <span class="symbol">OUTPUT</span>);</span><br><span class="line"><span class="built_in">pinMode</span>(B, <span class="symbol">OUTPUT</span>);</span><br><span class="line"><span class="built_in">pinMode</span>(C, <span class="symbol">OUTPUT</span>);</span><br><span class="line"><span class="built_in">pinMode</span>(D, <span class="symbol">OUTPUT</span>);</span><br><span class="line"><span class="built_in">pinMode</span>(E, <span class="symbol">OUTPUT</span>);</span><br><span class="line"><span class="built_in">pinMode</span>(F, <span class="symbol">OUTPUT</span>);</span><br><span class="line"><span class="built_in">pinMode</span>(G, <span class="symbol">OUTPUT</span>);</span><br><span class="line"><span class="built_in">pinMode</span>(DP, <span class="symbol">OUTPUT</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 7 Segment Ready</span></span><br><span class="line"><span class="built_in">digitalWrite</span> (A,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (B,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (C,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (D,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (E,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (F,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (G,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (DP,<span class="symbol">HIGH</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>() &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// digit 0</span></span><br><span class="line"><span class="built_in">digitalWrite</span> (A,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (B,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (C,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (D,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (E,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (F,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (G,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (DP,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">delay</span>(dt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// digit 1</span></span><br><span class="line"><span class="built_in">digitalWrite</span> (A,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (B,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (C,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (D,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (E,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (F,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (G,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (DP,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">delay</span>(dt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// digit 2</span></span><br><span class="line"><span class="built_in">digitalWrite</span> (A,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (B,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (C,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (D,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (E,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (F,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (G,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (DP,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">delay</span>(dt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// digit 3</span></span><br><span class="line"><span class="built_in">digitalWrite</span> (A,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (B,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (C,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (D,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (E,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (F,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (G,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (DP,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">delay</span>(dt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// digit 4</span></span><br><span class="line"><span class="built_in">digitalWrite</span> (A,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (B,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (C,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (D,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (E,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (F,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (G,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (DP,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">delay</span>(dt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// digit 5</span></span><br><span class="line"><span class="built_in">digitalWrite</span> (A,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (B,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (C,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (D,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (E,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (F,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (G,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (DP,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">delay</span>(dt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// digit 6</span></span><br><span class="line"><span class="built_in">digitalWrite</span> (A,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (B,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (C,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (D,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (E,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (F,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (G,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (DP,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">delay</span>(dt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// digit 7</span></span><br><span class="line"><span class="built_in">digitalWrite</span> (A,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (B,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (C,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (D,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (E,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (F,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (G,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (DP,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">delay</span>(dt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// digit 8</span></span><br><span class="line"><span class="built_in">digitalWrite</span> (A,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (B,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (C,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (D,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (E,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (F,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (G,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (DP,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">delay</span>(dt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// digit 9</span></span><br><span class="line"><span class="built_in">digitalWrite</span> (A,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (B,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (C,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (D,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (E,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (F,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (G,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (DP,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">delay</span>(dt);</span><br><span class="line"></span><br><span class="line"><span class="comment">// digit 0.</span></span><br><span class="line"><span class="built_in">digitalWrite</span> (A,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (B,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (C,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (D,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (E,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (F,<span class="symbol">LOW</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (G,<span class="symbol">HIGH</span>);</span><br><span class="line"><span class="built_in">digitalWrite</span> (DP,<span class="symbol">LOW</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>배열을 사용하여 숫자 출력하기</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> numArray[<span class="number">11</span>][<span class="number">8</span>] = &#123;</span><br><span class="line">  &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>&#125;, <span class="comment">// 0</span></span><br><span class="line">  &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;, <span class="comment">// 1</span></span><br><span class="line">  &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>&#125;, <span class="comment">// 2</span></span><br><span class="line">  &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>&#125;, <span class="comment">// 3</span></span><br><span class="line">  &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;, <span class="comment">// 4</span></span><br><span class="line">  &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;, <span class="comment">// 5</span></span><br><span class="line">  &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;, <span class="comment">// 6</span></span><br><span class="line">  &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;, <span class="comment">// 7</span></span><br><span class="line">  &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;, <span class="comment">// 8</span></span><br><span class="line">  &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;, <span class="comment">// 9</span></span><br><span class="line">  &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;  <span class="comment">// 0.</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> pins[] = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123;</span><br><span class="line">  <span class="function">for</span> (<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; <span class="number">8</span>; r++) &#123;</span><br><span class="line">    <span class="built_in">pinMode</span>(pins[r], <span class="symbol">OUTPUT</span>);</span><br><span class="line">    <span class="built_in">digitalWrite</span>(pins[r], <span class="number">1</span>); <span class="comment">// 7 Segment Ready</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 8 출력</span></span><br><span class="line">  <span class="function">for</span> (<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; <span class="number">8</span>; r++) &#123;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(pins[r], numArray[<span class="number">8</span>][r]); <span class="comment">// numbers[8][r]이면 8을 출력</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="function">for</span> (<span class="keyword">int</span> num = <span class="number">0</span>; num &lt; <span class="number">11</span>; num++) &#123;</span><br><span class="line">    <span class="function">for</span> (<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; <span class="number">8</span>; r++) &#123;</span><br><span class="line">      <span class="built_in">digitalWrite</span>(pins[r], numbers[num][r]); <span class="comment">// num의 값을 출력</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2진수나 16진수를 이용하여 표시하기</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> numArray[<span class="number">10</span>] = &#123;</span><br><span class="line">  <span class="number">0</span>b11000000,   <span class="comment">// 0</span></span><br><span class="line">  <span class="number">0</span>b11111001,   <span class="comment">// 1</span></span><br><span class="line">  <span class="number">0</span>b10100100,   <span class="comment">// 2</span></span><br><span class="line">  <span class="number">0</span>b10110000,   <span class="comment">// 3</span></span><br><span class="line">  <span class="number">0</span>b10011001,   <span class="comment">// 4</span></span><br><span class="line">  <span class="number">0</span>b10010010,   <span class="comment">// 5</span></span><br><span class="line">  <span class="number">0</span>b10000010,   <span class="comment">// 6</span></span><br><span class="line">  <span class="number">0</span>b11111000,   <span class="comment">// 7</span></span><br><span class="line">  <span class="number">0</span>b10000000,   <span class="comment">// 8</span></span><br><span class="line">  <span class="number">0</span>b10010000    <span class="comment">// 9</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// int numArray[10] = &#123; 0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90 &#125;;</span></span><br><span class="line"><span class="comment">// 16진수를 사용해도 됨</span></span><br><span class="line"><span class="comment">// 소수점 포함 int numArray[10] = &#123; 0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10 &#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> segPins[<span class="number">7</span>] = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123;                </span><br><span class="line">  <span class="function">for</span> (i=<span class="number">0</span>; i &lt; <span class="number">8</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">pinMode</span>(segPins[i], <span class="symbol">OUTPUT</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>() &#123;</span><br><span class="line">  <span class="function">for</span> (i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">  &#123;</span><br><span class="line">    segLED(i);                         <span class="comment">// i=1이면 1을 출력</span></span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> segLED(<span class="keyword">int</span> num) &#123;                 <span class="comment">// num값을 넘겨받아</span></span><br><span class="line">  <span class="keyword">int</span> data = numArray[num];            <span class="comment">// num번째 배열값을 data로 지정</span></span><br><span class="line">  </span><br><span class="line">  <span class="function">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">8</span>; j++)</span><br><span class="line">  &#123;                                    <span class="comment">// 2진수 배열 8비트를 &amp;연산자로 가장 오른쪽11 비트값부터 검사</span></span><br><span class="line">    <span class="function">if</span>(data &amp; <span class="number">0x01</span>) &#123;                  <span class="comment">// 1이면</span></span><br><span class="line">      <span class="built_in">digitalWrite</span>(segPins[j], <span class="symbol">HIGH</span>);  <span class="comment">// HIGH(끄고)</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">else</span> &#123;</span><br><span class="line">      <span class="built_in">digitalWrite</span>(segPins[j], <span class="symbol">LOW</span>);   <span class="comment">// 1이 아니면(0이면)</span></span><br><span class="line">    &#125;                                  <span class="comment">// LOW(킨다)</span></span><br><span class="line">  data &gt;&gt;= <span class="number">1</span>;                          <span class="comment">// data값을 1비트씩 오른쪽으로 쉬프트한 후</span></span><br><span class="line">  &#125;                                    <span class="comment">// 7번 추가 실행 (총 8번 실행)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Serial Monitor에서 값을 입력받아 출력하기</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> numArray[<span class="number">10</span>] = &#123; <span class="number">0xC0</span>, <span class="number">0xF9</span>, <span class="number">0xA4</span>, <span class="number">0xB0</span>, <span class="number">0x99</span>, <span class="number">0x92</span>, <span class="number">0x82</span>, <span class="number">0xF8</span>, <span class="number">0x80</span>, <span class="number">0x90</span> &#125;;</span><br><span class="line"><span class="comment">// 소수점 포함 int numArray[10] = &#123; 0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10 &#125;;</span></span><br><span class="line"><span class="keyword">int</span> segPins[<span class="number">7</span>] = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123; </span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>); </span><br><span class="line">  <span class="function">for</span> (i=<span class="number">0</span>; i &lt; <span class="number">8</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">pinMode</span>(segPins[i], <span class="symbol">OUTPUT</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>() &#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"Press any number!(0~9)"</span>); </span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">1000</span>); </span><br><span class="line"></span><br><span class="line">  <span class="function">if</span> (<span class="built_in">Serial</span>.<span class="built_in">available</span>()) &#123;</span><br><span class="line">  <span class="keyword">int</span> number = <span class="built_in">Serial</span>.<span class="built_in">read</span>();</span><br><span class="line">    <span class="function">if</span>(number &lt; <span class="number">10</span>) &#123;</span><br><span class="line">	  <span class="built_in">Serial</span>.<span class="built_in">println</span>(number<span class="string">");  </span></span><br><span class="line"><span class="string">	  segLED(number);                  // i=1이면 1을 출력</span></span><br><span class="line"><span class="string">	  delay(1000);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    else &#123;</span></span><br><span class="line"><span class="string">      Serial.println("</span>Please input a lower number than <span class="number">10</span>!<span class="string">")</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">void segLED(int num) &#123;                 // num값을 넘겨받아</span></span><br><span class="line"><span class="string">  int data = numArray[num];            // num번째 배열값을 data로 지정</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  for (j = 0; j &lt; 8; j++)</span></span><br><span class="line"><span class="string">  &#123;                                    // 2진수 배열 8비트를 &amp;연산자로 가장 오른쪽11 비트값부터 검사</span></span><br><span class="line"><span class="string">    if(data &amp; 0x01) &#123;                  // 1이면</span></span><br><span class="line"><span class="string">      digitalWrite(segPins[j], HIGH);  // HIGH(끄고)</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    else &#123;</span></span><br><span class="line"><span class="string">      digitalWrite(segPins[j], LOW);   // 1이 아니면(0이면)</span></span><br><span class="line"><span class="string">    &#125;                                  // LOW(킨다)</span></span><br><span class="line"><span class="string">  data &gt;&gt;= 1;                          // data값을 1비트씩 오른쪽으로 쉬프트한 후</span></span><br><span class="line"><span class="string">  &#125;                                    // 7번 추가 실행 (총 8번 실행)</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2개의-7-Segment-사용하여-2자리-숫자-나타내기"><a href="#2개의-7-Segment-사용하여-2자리-숫자-나타내기" class="headerlink" title="2개의 7-Segment 사용하여 2자리 숫자 나타내기"></a>2개의 7-Segment 사용하여 2자리 숫자 나타내기</h3><hr>
+<p>1개의 7 Segment를 사용하는데 8개의 Digital Pin이 필요하므로, 2개 이상의 7 Segment를 사용하려면 16개의 Digital Pin이 필요합니다. 핀의 개수로만 보면 Arduino Uno로는 표현할 수 없어요. 그래서 2개의 7 Segment의 전원부를 통해 제어하면서 빠른 시간동안 on/off를 반복하며 우리 눈에 나타나는 잔상효과를 이용하여 여러개의 FND를 사용하게 됩니다. 이러한 방식을 Dynamic 구동 방식이라고 부릅니다.</p>
+<p>아래 회로를 예로들면 아두이노의 Digital 2~9번핀이 각각 두개의 FND로 병렬연결 되어 있고, 10번핀은 10의 자리를 나타내는 FND1에, 11번 핀은 1의 자리를 나타내는 FND2에 연결되어 있는 것을 볼 수 있습니다. 이 회로를 통해 10번핀을 LOW, 11번핀을 HIGH로 두면 FND1이 작동하게 됩니다. 마찬가지로 10번핀을 HIGH, 11번핀을 LOW로 두면 FND2가 작동하게 되겠지요. 이러한 방식으로 2개의 FND를 10개의 핀으로 작동할 수 있게 되는 것입니다. </p>
+<p><img src="https://i.imgur.com/DXEzIwh.jpg" alt="2개의 7세그먼트연결"></p>
+<h4 id="sketch-1"><a href="#sketch-1" class="headerlink" title="sketch"></a>sketch</h4><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> numArray[<span class="number">10</span>] = &#123;</span><br><span class="line">  <span class="number">0</span>b01000000,   <span class="comment">// 0</span></span><br><span class="line">  <span class="number">0</span>b01111001,   <span class="comment">// 1</span></span><br><span class="line">  <span class="number">0</span>b00100100,   <span class="comment">// 2</span></span><br><span class="line">  <span class="number">0</span>b00110000,   <span class="comment">// 3</span></span><br><span class="line">  <span class="number">0</span>b00011001,   <span class="comment">// 4</span></span><br><span class="line">  <span class="number">0</span>b00010010,   <span class="comment">// 5</span></span><br><span class="line">  <span class="number">0</span>b00000010,   <span class="comment">// 6</span></span><br><span class="line">  <span class="number">0</span>b01111000,   <span class="comment">// 7</span></span><br><span class="line">  <span class="number">0</span>b00000000,   <span class="comment">// 8</span></span><br><span class="line">  <span class="number">0</span>b00010000    <span class="comment">// 9</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// int numArray[10] = &#123; 0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10 &#125;;</span></span><br><span class="line"><span class="comment">// 16진수를 사용해도 됨</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> segPins[] = &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span> &#125;;  <span class="comment">// Segment핀 번호</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> segNum = <span class="number">2</span>;                              <span class="comment">// Segment 개수 (숫자 자리수)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> vccPins[segNum] = &#123; <span class="number">10</span>, <span class="number">11</span> &#125;;            <span class="comment">// 10, 11번 핀을 통해 seg#1, seg#2의 전원 인가</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123;</span><br><span class="line">  <span class="function">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">pinMode</span>(segPins[i], <span class="symbol">OUTPUT</span>);                   <span class="comment">// Segment핀 설정</span></span><br><span class="line">  &#125; </span><br><span class="line">  <span class="function">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; segNum; i++) &#123;</span><br><span class="line">    <span class="built_in">pinMode</span>(vccPins[i], <span class="symbol">OUTPUT</span>);                   <span class="comment">// seg#0, seg#1의 전원인가 핀 설정</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>() &#123;</span><br><span class="line">  <span class="function">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;                  <span class="comment">// 0~99까지 숫자를 표시</span></span><br><span class="line">    <span class="function">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; <span class="number">10</span>; n++) &#123;                 <span class="comment">// 빠르게 카운트할 경우 모든 LED가 켜져 있는 것처럼 보여 </span></span><br><span class="line">      showNumber(i);                               <span class="comment">// 숫자를 구분할 수 없으므로, 빠르게 10번씩 점멸시키면서 표시</span></span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;                                  </span><br><span class="line">&#125;                                    </span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> showNumber(<span class="keyword">int</span> number) &#123;</span><br><span class="line">  <span class="function">if</span> (number == <span class="number">0</span>) &#123;</span><br><span class="line">    showDigit(number, <span class="number">0</span>);                         <span class="comment">// 0의 경우 (1의 자리수) Segment에만 0을 출력</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function">else</span> &#123;</span><br><span class="line">    <span class="function">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; segNum; j++) &#123;            <span class="comment">// 10의 자리, 1의 자리 출력을 위해 2번 실행</span></span><br><span class="line">      <span class="function">if</span> (number &gt; <span class="number">0</span>) &#123;                           <span class="comment">// 출력값이 0보다 큰 경우에만 실행</span></span><br><span class="line">        showDigit(number % <span class="number">10</span>, j);                <span class="comment">// 1의 자리 숫자(%10)를 seg#0(j=0)에 출력 (if 10의 자리 숫자 = (number % 100) / 10))</span></span><br><span class="line">        number = number / <span class="number">10</span>;                     <span class="comment">// ※ 숫자를 10으로 나눠 10의 자리 숫자를 1의 자리 숫자로 만듦</span></span><br><span class="line">      &#125;                                           <span class="comment">// if 처음에 주어진 숫자가 한 자리 수였으면,</span></span><br><span class="line">      <span class="built_in">delay</span>(<span class="number">5</span>);                                   <span class="comment">//    → 10으로 나눈 후에는 1의 자리값이 0이 되어, 0보다 큰 값이 안되므로 10의 자리 출력하지 않음</span></span><br><span class="line">    &#125;                                             <span class="comment">// if 처음에 주어진 숫자가 두 자리 수였으면</span></span><br><span class="line">  &#125;                                               <span class="comment">//    → 10으로 나눈 후 10의 자리 숫자가 1의 자리 수가 되므로, 10이 자리수를 seg#1(j=1)에 출력 </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> showDigit(<span class="keyword">int</span> num, <span class="keyword">int</span> digit) &#123;              <span class="comment">// num값과 digit(0→1의 자리수에 표시, 1→10의 자리수에 표시)을 넘겨받아</span></span><br><span class="line">  <span class="keyword">int</span> data = numArray[num];                       <span class="comment">// num번째 배열값을 digit자리수에 표시할 data로 지정</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">digitalWrite</span>(vccPins[<span class="number">0</span>], <span class="symbol">HIGH</span>);                 <span class="comment">// vcc핀에 전원 인가</span></span><br><span class="line">  <span class="built_in">digitalWrite</span>(vccPins[<span class="number">1</span>], <span class="symbol">HIGH</span>);                 <span class="comment">// [0] = Arduino Pin10, [1] = Arduino Pin11</span></span><br><span class="line"></span><br><span class="line">  <span class="function">for</span> (<span class="keyword">int</span> segLED = <span class="number">0</span>; segLED &lt; <span class="number">7</span>; segLED++)      <span class="comment">// 숫자 2진수의 7세그먼트 ON, OFF</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="function">if</span> (data &amp; <span class="number">0x01</span>) &#123;                            <span class="comment">// 1이면</span></span><br><span class="line">      <span class="built_in">digitalWrite</span>(segPins[segLED], <span class="symbol">HIGH</span>);        <span class="comment">// HIGH(끄고)                  </span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">else</span> &#123;                                        <span class="comment">// 1이 아니면(0이면)</span></span><br><span class="line">      <span class="built_in">digitalWrite</span>(segPins[segLED], <span class="symbol">LOW</span>);         <span class="comment">// LOW(끈다)               </span></span><br><span class="line">    &#125;</span><br><span class="line">    data &gt;&gt;= <span class="number">1</span>;                                   <span class="comment">// data값을 1비트씩 오른쪽으로 쉬프트한 후</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">digitalWrite</span>(vccPins[digit], <span class="symbol">LOW</span>);              <span class="comment">// 숫자 LED 한 자리 ON</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-FND"><a href="#4-FND" class="headerlink" title="4 FND"></a>4 FND</h3><hr>
+<p>4개의 FND를 Dynamic 방식으로 구동하기 위해서는 8개의 데이터 핀과 4개의 전원부 핀이 필요합니다. </p>
+<p><img src="https://i.imgur.com/qpPOjkL.jpg" alt="4FND Pin Map"></p>
+<h4 id="회로도"><a href="#회로도" class="headerlink" title="회로도"></a>회로도</h4><p><img src="https://i.imgur.com/q4P7XJ5.jpg" alt="4FND Dynamic Circuit"></p>
+<p>※ 주의 : 회로도에 그려진 FND에는 16개의 핀이 있지만, 실제 사용한 3641AS를 비롯한 대부분의 4FND는 12개의 핀을 가지고 있는 경우가 많습니다.</p>
+<h4 id="Pin-map"><a href="#Pin-map" class="headerlink" title="Pin map"></a>Pin map</h4><table>
+<thead>
+<tr>
+<th>FND</th>
+<th>Arduino</th>
+<th>Segment</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>6</td>
+<td>E</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>5</td>
+<td>D</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>13</td>
+<td>DP</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>C</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>8</td>
+<td>G</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>9</td>
+<td>S1</td>
+<td>1의 자리 수</td>
+</tr>
+<tr>
+<td>7</td>
+<td>3</td>
+<td>B</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>10</td>
+<td>S2</td>
+<td>10의 자리 수</td>
+</tr>
+<tr>
+<td>9</td>
+<td>11</td>
+<td>S3</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>7</td>
+<td>F</td>
+<td>100의 자리 수</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2</td>
+<td>A</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>12</td>
+<td>S4</td>
+<td>1000의 자리 수</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sketch-2"><a href="#sketch-2" class="headerlink" title="sketch"></a>sketch</h4><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Segment_X - Arduino Pin // FND Pin</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SEG_A 2 <span class="comment">// 11</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SEG_B 3 <span class="comment">// 7</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SEG_C 4 <span class="comment">// 4</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SEG_D 5 <span class="comment">// 2</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SEG_E 6 <span class="comment">// 1</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SEG_F 7 <span class="comment">// 10</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SEG_G 8 <span class="comment">// 5</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// FND_num - Arduino Pin // FND Pin</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FND1 9  <span class="comment">// 6</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FND2 10 <span class="comment">// 8</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FND3 11 <span class="comment">// 9</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FND4 12 <span class="comment">// 12</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> seglight(<span class="keyword">byte</span> number);</span><br><span class="line"><span class="keyword">byte</span> numbers[] = &#123;</span><br><span class="line">  B0111111,  <span class="comment">// MSB   --  LSB</span></span><br><span class="line">  B0000110,</span><br><span class="line">  B1011011,</span><br><span class="line">  B1001111,</span><br><span class="line">  B1100110,</span><br><span class="line">  B1101101,</span><br><span class="line">  B1111101,</span><br><span class="line">  B0000111,</span><br><span class="line">  B1111111,</span><br><span class="line">  B1101111</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> FND[] = &#123;SEG_A, SEG_B, SEG_C, SEG_D, SEG_E, SEG_F, SEG_G &#125;;</span><br><span class="line"><span class="keyword">int</span> FND_NO[] = &#123;FND1, FND2, FND3, FND4&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123;</span><br><span class="line">  <span class="function">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">pinMode</span>(FND[i], <span class="symbol">OUTPUT</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">pinMode</span>(FND_NO[i], <span class="symbol">OUTPUT</span>);</span><br><span class="line">    <span class="built_in">digitalWrite</span>(FND_NO[i], <span class="symbol">HIGH</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ON = <span class="symbol">OUTPUT</span>;</span><br><span class="line"><span class="keyword">int</span> intCnt = <span class="number">0</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="function">if</span>(intCnt &lt; <span class="number">10000</span>) &#123;</span><br><span class="line">    intCnt++;</span><br><span class="line">  &#125; <span class="function">else</span> &#123;</span><br><span class="line">    intCnt = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">long</span> start = <span class="built_in">millis</span>();</span><br><span class="line">  <span class="function">for</span> (<span class="keyword">unsigned</span> <span class="keyword">long</span> j = <span class="number">0</span> ; j &lt; <span class="number">10</span> ; j = <span class="built_in">millis</span>() - start) &#123; <span class="comment">// 600 밀리초 마다 실행</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Dynamic 구동</span></span><br><span class="line">    <span class="built_in">digitalWrite</span>(FND1, <span class="symbol">LOW</span>);                 <span class="comment">// 1의 자리 켜기</span></span><br><span class="line">    seglight(numbers[intCnt % <span class="number">10</span>]);</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">5</span>);                                <span class="comment">// 5ms 유지 후</span></span><br><span class="line">    <span class="built_in">digitalWrite</span>(FND1, <span class="symbol">HIGH</span>);                <span class="comment">// 끄기</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">digitalWrite</span>(FND2, <span class="symbol">LOW</span>);                 <span class="comment">// 10의 자리 켜기</span></span><br><span class="line">    seglight(numbers[(intCnt / <span class="number">10</span>) % <span class="number">10</span>]);</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">5</span>);                                <span class="comment">// 5ms 유지 후</span></span><br><span class="line">    <span class="built_in">digitalWrite</span>(FND2, <span class="symbol">HIGH</span>);                <span class="comment">// 끄기</span></span><br><span class="line"> </span><br><span class="line">    <span class="built_in">digitalWrite</span>(FND3, <span class="symbol">LOW</span>);                 <span class="comment">// 100의 자리 켜기</span></span><br><span class="line">    seglight(numbers[(intCnt / <span class="number">100</span>) % <span class="number">10</span>]);</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">5</span>);                                <span class="comment">// 5ms 유지 후 </span></span><br><span class="line">    <span class="built_in">digitalWrite</span>(FND3, <span class="symbol">HIGH</span>);                <span class="comment">// 끄기</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">digitalWrite</span>(FND4, <span class="symbol">LOW</span>);                 <span class="comment">// 1000의 자리 켜기</span></span><br><span class="line">    seglight(numbers[(intCnt / <span class="number">1000</span>) % <span class="number">10</span>]);</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">5</span>);                                <span class="comment">// 5ms 유지 후</span></span><br><span class="line">    <span class="built_in">digitalWrite</span>(FND4, <span class="symbol">HIGH</span>);                <span class="comment">// 끄기</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Bit값으로 FND 각 LED 점등</span></span><br><span class="line"><span class="keyword">void</span> seglight(<span class="keyword">byte</span> number) &#123;</span><br><span class="line">  <span class="function">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">7</span> ; i++) &#123;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">bit</span> = <span class="built_in">bitRead</span>(number, i) ;</span><br><span class="line">    <span class="built_in">digitalWrite</span>(FND[i], <span class="built_in">bit</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://chemidot.github.io/2017/11/12/2017-11-12-7-세그먼트-사용하기/" data-id="cjv23k7ii004r1kb9ztxgspms" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "chemidot"
+        },
+        "headline": "7-세그먼트(FND) 사용하기",
+        "image": "http://chemidot.github.iohttps://i.imgur.com/tl3YqLX.jpg",
+        "keywords": "Arduino",
+        "genre": "렛츠아두이노",
+        "datePublished": "2017-11-12",
+        "dateCreated": "2017-11-12",
+        "dateModified": "2017-12-15",
+        "url": "http://chemidot.github.io/2017/11/12/2017-11-12-7-세그먼트-사용하기/",
+        "description": "7 Segment (FND)
+7 Segment(FND)는 숫자나 문자를 표현하는 7개의 LED와 소수점을 표현하는 1개의 LED가 포함되어 있는 부품을 의미합니다. FND는 16X2 LCD와 비교할 때 표현할 수 있는 문자의 개수가 제한되고, 각 문자의 표현을 위하여 총 8개의 LED를 하나씩 조절해주어야 하는 등 사용이 복잡하다는 단점이 있습니다. 그렇지"
+        "wordCount": 5413
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/11/15/2017-11-15-키패드-사용하기/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            키패드 사용하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/11/07/2017-11-07-16X2-LCD-디스플레이/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">16X2 LCD Display</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/irAO9rT.jpg)" alt="Bluetooth 4WD" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="title">Bluetooth 4WD</a></p>
+                            <p class="item-date"><time datetime="2018-10-11T09:27:53.000Z" itemprop="datePublished">2018-10-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://imgur.com/B1dxP00.jpg)" alt="Bluetooth 4WD Controller" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="title">Bluetooth 4WD Controller</a></p>
+                            <p class="item-date"><time datetime="2018-10-10T09:27:53.000Z" itemprop="datePublished">2018-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/Lbo12LG.jpg)" alt="Bluetooth 페어링" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="title">Bluetooth 페어링</a></p>
+                            <p class="item-date"><time datetime="2018-10-09T09:27:53.000Z" itemprop="datePublished">2018-10-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/31/2018-01-31-연수기-DIY/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/4dgI0uA.png)" alt="연수기 DIY" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/알쓸신잡/">알쓸신잡</a></p>
+                            <p class="item-title"><a href="/2018/01/31/2018-01-31-연수기-DIY/" class="title">연수기 DIY</a></p>
+                            <p class="item-date"><time datetime="2018-01-31T09:27:53.000Z" itemprop="datePublished">2018-01-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/미니노트/">미니노트</a></p>
+                            <p class="item-title"><a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="title">캘리그래피 노트 2017-2학기</a></p>
+                            <p class="item-date"><time datetime="2017-12-10T09:27:53.000Z" itemprop="datePublished">2017-12-10</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/과학/">과학</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/놀이터/">놀이터</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미니노트/">미니노트</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/알쓸신잡/">알쓸신잡</a><span class="category-list-count">18</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10월 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">1월 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">10월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">4월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">12월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">11월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">12월 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">10월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">7월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">3월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">7월 2009</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/">DIY</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LG070/">LG070</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/beijing/">beijing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/billboard/">billboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/china/">china</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hongkong/">hongkong</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kisb/">kisb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shanghai/">shanghai</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sks/">sks</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/생활/">생활</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/스마트폰/">스마트폰</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/재외국민/">재외국민</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/전기요금/">전기요금</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/캘리그래피/">캘리그래피</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/화학/">화학</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Arduino/" style="font-size: 20px;">Arduino</a> <a href="/tags/DIY/" style="font-size: 13.33px;">DIY</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/LG070/" style="font-size: 10px;">LG070</a> <a href="/tags/beijing/" style="font-size: 13.33px;">beijing</a> <a href="/tags/billboard/" style="font-size: 10px;">billboard</a> <a href="/tags/china/" style="font-size: 20px;">china</a> <a href="/tags/hongkong/" style="font-size: 10px;">hongkong</a> <a href="/tags/kisb/" style="font-size: 13.33px;">kisb</a> <a href="/tags/shanghai/" style="font-size: 10px;">shanghai</a> <a href="/tags/sks/" style="font-size: 13.33px;">sks</a> <a href="/tags/생활/" style="font-size: 13.33px;">생활</a> <a href="/tags/스마트폰/" style="font-size: 16.67px;">스마트폰</a> <a href="/tags/재외국민/" style="font-size: 10px;">재외국민</a> <a href="/tags/전기요금/" style="font-size: 13.33px;">전기요금</a> <a href="/tags/캘리그래피/" style="font-size: 13.33px;">캘리그래피</a> <a href="/tags/화학/" style="font-size: 10px;">화학</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 chemidot</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://chemidot.github.io/2017/11/12/2017-11-12-7-세그먼트-사용하기/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    </div>
+</body>
+</html>

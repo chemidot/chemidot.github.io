@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>hexo-theme-hueman에 Naver Billboard.js 적용하기 | de la Cruz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Hexo,billboard">
+    
+    <meta name="description" content="Billboard.js 설치  다운로드   D3 : d3.zip 다운로드 후 압축풀기 billboard : billboard.js, billboard.css 다운로드   js, css 복사   D3 폴더를 c:\hexoblog\themes\hueman\source\libs 에 복사 billboard.js, billboard.css를 c:\hexoblog\t">
+<meta name="keywords" content="Hexo,billboard">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo-theme-hueman에 Naver Billboard.js 적용하기">
+<meta property="og:url" content="http://chemidot.github.io/2017/09/30/2017-11-10-네이버-Billboard.js-on-Hexo/index.html">
+<meta property="og:site_name" content="de la Cruz">
+<meta property="og:description" content="Billboard.js 설치  다운로드   D3 : d3.zip 다운로드 후 압축풀기 billboard : billboard.js, billboard.css 다운로드   js, css 복사   D3 폴더를 c:\hexoblog\themes\hueman\source\libs 에 복사 billboard.js, billboard.css를 c:\hexoblog\t">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2017-11-25T13:45:47.243Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo-theme-hueman에 Naver Billboard.js 적용하기">
+<meta name="twitter:description" content="Billboard.js 설치  다운로드   D3 : d3.zip 다운로드 후 압축풀기 billboard : billboard.js, billboard.css 다운로드   js, css 복사   D3 폴더를 c:\hexoblog\themes\hueman\source\libs 에 복사 billboard.js, billboard.css를 c:\hexoblog\t">
+    
+
+    
+        <link rel="alternate" href="/" title="de la Cruz" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">a la fecha</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/과학/">과학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/놀이터/">놀이터</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/미니노트/">미니노트</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알쓸신잡/">알쓸신잡</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/알쓸신잡/">알쓸신잡</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2017-11-10-네이버-Billboard.js-on-Hexo" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        hexo-theme-hueman에 Naver Billboard.js 적용하기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/09/30/2017-11-10-네이버-Billboard.js-on-Hexo/" class="article-date">
+            <time datetime="2017-09-30T11:58:58.000Z" itemprop="datePublished">2017-09-30</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Hexo/">Hexo</a>, <a class="tag-link" href="/tags/billboard/">billboard</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="Billboard-js-설치"><a href="#Billboard-js-설치" class="headerlink" title="Billboard.js 설치"></a>Billboard.js 설치</h3><hr>
+<ol>
+<li>다운로드</li>
+</ol>
+<ul>
+<li><a href="https://d3js.org/" target="_blank" rel="noopener">D3</a> : <a href="https://github.com/d3/d3/releases/download/v4.11.0/d3.zip" target="_blank" rel="noopener">d3.zip</a> 다운로드 후 압축풀기</li>
+<li><a href="https://naver.github.io/billboard.js/" target="_blank" rel="noopener">billboard</a> : billboard.js, billboard.css 다운로드</li>
+</ul>
+<ol start="2">
+<li>js, css 복사</li>
+</ol>
+<ul>
+<li>D3 폴더를 c:\hexoblog\themes\hueman\source\libs 에 복사</li>
+<li>billboard.js, billboard.css를 c:\hexoblog\themes\hueman\source\libs\billboard 에 복사</li>
+</ul>
+<ol start="3">
+<li><p>c:\hexoblog\themes\hueman\layout\plugin\script.ejs 파일에 아래 내용을 추가</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (typeof(isHead) !== <span class="string">'undefined'</span> &amp;&amp; isHead) &#123; %&gt;</span><br><span class="line">(중략)</span><br><span class="line">	&lt;% <span class="keyword">if</span> (theme.plugins.billboard) &#123; %&gt;</span><br><span class="line">		&lt;%- js(<span class="string">'libs/d3/d3.min'</span>) %&gt;</span><br><span class="line">		&lt;%- js(<span class="string">'libs/billboard/billboard'</span>) %&gt;</span><br><span class="line">		&lt;%- css(<span class="string">'libs/billboard/billboard'</span>) %&gt;</span><br><span class="line">    &lt;% &#125; %&gt;</span><br><span class="line">&lt;% &#125; <span class="keyword">else</span> &#123; %&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>c:\hexoblog\themes\hueman\＿config.yml 파일의 plugins: 에 아래 내용을 추가</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plugins:</span><br><span class="line">	billboard: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>포스팅할 md파일에서 그래프 출력할 위치에 아래 내용을 추가(예시)</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"chart"</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> chart = bb.generate(&#123;</span><br><span class="line">	bindto: <span class="string">"#chart"</span>,</span><br><span class="line">	data: &#123;</span><br><span class="line">		columns: [</span><br><span class="line">    		[<span class="string">"data1"</span>, <span class="number">30</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">170</span>, <span class="number">150</span>, <span class="number">250</span>],</span><br><span class="line">    		[<span class="string">"data2"</span>, <span class="number">130</span>, <span class="number">100</span>, <span class="number">140</span>, <span class="number">35</span>, <span class="number">110</span>, <span class="number">50</span>]</span><br><span class="line">		],</span><br><span class="line">		types: &#123;</span><br><span class="line">			data1: <span class="string">"line"</span>,</span><br><span class="line">			data2: <span class="string">"area-spline"</span></span><br><span class="line">		&#125;,</span><br><span class="line">		colors: &#123;</span><br><span class="line">			data1: <span class="string">"red"</span>,</span><br><span class="line">			data2: <span class="string">"green"</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h4><p><div id="chart"></div></p>
+<script>
+var chart = bb.generate({
+    bindto: "#chart",
+    data: {
+        columns: [
+            ["data1", 30, 200, 100, 170, 150, 250],
+            ["data2", 130, 100, 140, 35, 110, 50]
+        ],
+        types: {
+            data1: "line",
+            data2: "area-spline"
+        },
+        colors: {
+            data1: "red",
+            data2: "green"
+        }
+    }
+});
+</script>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://chemidot.github.io/2017/09/30/2017-11-10-네이버-Billboard.js-on-Hexo/" data-id="cjv23k7eg001q1kb92jpwy0u5" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "chemidot"
+        },
+        "headline": "hexo-theme-hueman에 Naver Billboard.js 적용하기",
+        "image": "http://chemidot.github.io",
+        "keywords": "Hexo billboard",
+        "genre": "알쓸신잡",
+        "datePublished": "2017-09-30",
+        "dateCreated": "2017-09-30",
+        "dateModified": "2017-11-25",
+        "url": "http://chemidot.github.io/2017/09/30/2017-11-10-네이버-Billboard.js-on-Hexo/",
+        "description": "Billboard.js 설치
+
+다운로드
+
+
+D3 : d3.zip 다운로드 후 압축풀기
+billboard : billboard.js, billboard.css 다운로드
+
+
+js, css 복사
+
+
+D3 폴더를 c:\hexoblog\themes\hueman\source\libs 에 복사
+billboard.js, billboard.css를 c:\hexoblog\t"
+        "wordCount": 381
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/30/2017-09-30-Hexo-on-Windows-10/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            Hexo on Windows 10
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/09/25/2017-09-25-联通-연통-무엇을-가입할까/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">联通 연통 서비스 중 어떤 것이 좋을까요</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/irAO9rT.jpg)" alt="Bluetooth 4WD" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="title">Bluetooth 4WD</a></p>
+                            <p class="item-date"><time datetime="2018-10-11T09:27:53.000Z" itemprop="datePublished">2018-10-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://imgur.com/B1dxP00.jpg)" alt="Bluetooth 4WD Controller" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="title">Bluetooth 4WD Controller</a></p>
+                            <p class="item-date"><time datetime="2018-10-10T09:27:53.000Z" itemprop="datePublished">2018-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/Lbo12LG.jpg)" alt="Bluetooth 페어링" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="title">Bluetooth 페어링</a></p>
+                            <p class="item-date"><time datetime="2018-10-09T09:27:53.000Z" itemprop="datePublished">2018-10-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/31/2018-01-31-연수기-DIY/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/4dgI0uA.png)" alt="연수기 DIY" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/알쓸신잡/">알쓸신잡</a></p>
+                            <p class="item-title"><a href="/2018/01/31/2018-01-31-연수기-DIY/" class="title">연수기 DIY</a></p>
+                            <p class="item-date"><time datetime="2018-01-31T09:27:53.000Z" itemprop="datePublished">2018-01-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/미니노트/">미니노트</a></p>
+                            <p class="item-title"><a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="title">캘리그래피 노트 2017-2학기</a></p>
+                            <p class="item-date"><time datetime="2017-12-10T09:27:53.000Z" itemprop="datePublished">2017-12-10</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/과학/">과학</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/놀이터/">놀이터</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미니노트/">미니노트</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/알쓸신잡/">알쓸신잡</a><span class="category-list-count">18</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10월 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">1월 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">10월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">4월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">12월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">11월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">12월 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">10월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">7월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">3월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">7월 2009</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/">DIY</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LG070/">LG070</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/beijing/">beijing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/billboard/">billboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/china/">china</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hongkong/">hongkong</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kisb/">kisb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shanghai/">shanghai</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sks/">sks</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/생활/">생활</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/스마트폰/">스마트폰</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/재외국민/">재외국민</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/전기요금/">전기요금</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/캘리그래피/">캘리그래피</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/화학/">화학</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Arduino/" style="font-size: 20px;">Arduino</a> <a href="/tags/DIY/" style="font-size: 13.33px;">DIY</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/LG070/" style="font-size: 10px;">LG070</a> <a href="/tags/beijing/" style="font-size: 13.33px;">beijing</a> <a href="/tags/billboard/" style="font-size: 10px;">billboard</a> <a href="/tags/china/" style="font-size: 20px;">china</a> <a href="/tags/hongkong/" style="font-size: 10px;">hongkong</a> <a href="/tags/kisb/" style="font-size: 13.33px;">kisb</a> <a href="/tags/shanghai/" style="font-size: 10px;">shanghai</a> <a href="/tags/sks/" style="font-size: 13.33px;">sks</a> <a href="/tags/생활/" style="font-size: 13.33px;">생활</a> <a href="/tags/스마트폰/" style="font-size: 16.67px;">스마트폰</a> <a href="/tags/재외국민/" style="font-size: 10px;">재외국민</a> <a href="/tags/전기요금/" style="font-size: 13.33px;">전기요금</a> <a href="/tags/캘리그래피/" style="font-size: 13.33px;">캘리그래피</a> <a href="/tags/화학/" style="font-size: 10px;">화학</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 chemidot</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://chemidot.github.io/2017/09/30/2017-11-10-네이버-Billboard.js-on-Hexo/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    </div>
+</body>
+</html>

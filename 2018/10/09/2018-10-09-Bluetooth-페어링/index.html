@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>Bluetooth 페어링 | de la Cruz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Arduino">
+    
+    <meta name="description" content="Bluetooth 페어링아두이노에서 블루투스를 이용하는 방법을 알아보겠습니다.  Bluetooth 모듈 HC-06 기본적으로 사용되는 모듈은 HC-06입니다.   Pin Map   HC-06 Pin   Arduino Uno     1 STATE (실제 핀은 없음)    2 RXD Receive Data 3   3 TXD Transmit Date 7   4">
+<meta name="keywords" content="Arduino">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bluetooth 페어링">
+<meta property="og:url" content="http://chemidot.github.io/2018/10/09/2018-10-09-Bluetooth-페어링/index.html">
+<meta property="og:site_name" content="de la Cruz">
+<meta property="og:description" content="Bluetooth 페어링아두이노에서 블루투스를 이용하는 방법을 알아보겠습니다.  Bluetooth 모듈 HC-06 기본적으로 사용되는 모듈은 HC-06입니다.   Pin Map   HC-06 Pin   Arduino Uno     1 STATE (실제 핀은 없음)    2 RXD Receive Data 3   3 TXD Transmit Date 7   4">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://i.imgur.com/Lbo12LG.jpg">
+<meta property="og:updated_time" content="2018-10-14T12:48:50.756Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bluetooth 페어링">
+<meta name="twitter:description" content="Bluetooth 페어링아두이노에서 블루투스를 이용하는 방법을 알아보겠습니다.  Bluetooth 모듈 HC-06 기본적으로 사용되는 모듈은 HC-06입니다.   Pin Map   HC-06 Pin   Arduino Uno     1 STATE (실제 핀은 없음)    2 RXD Receive Data 3   3 TXD Transmit Date 7   4">
+<meta name="twitter:image" content="https://i.imgur.com/Lbo12LG.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="de la Cruz" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">a la fecha</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/과학/">과학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/놀이터/">놀이터</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/미니노트/">미니노트</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알쓸신잡/">알쓸신잡</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/렛츠아두이노/">렛츠아두이노</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2018-10-09-Bluetooth-페어링" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Bluetooth 페어링
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="article-date">
+            <time datetime="2018-10-09T09:27:53.000Z" itemprop="datePublished">2018-10-09</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Arduino/">Arduino</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="Bluetooth-페어링"><a href="#Bluetooth-페어링" class="headerlink" title="Bluetooth 페어링"></a>Bluetooth 페어링</h3><p>아두이노에서 블루투스를 이용하는 방법을 알아보겠습니다. </p>
+<h3 id="Bluetooth-모듈-HC-06"><a href="#Bluetooth-모듈-HC-06" class="headerlink" title="Bluetooth 모듈 HC-06"></a>Bluetooth 모듈 HC-06</h3><hr>
+<p>기본적으로 사용되는 모듈은 HC-06입니다. </p>
+<p><img src="https://i.imgur.com/Lbo12LG.jpg" alt="Imgur"></p>
+<h4 id="Pin-Map"><a href="#Pin-Map" class="headerlink" title="Pin Map"></a>Pin Map</h4><table>
+<thead>
+<tr>
+<th>HC-06 Pin</th>
+<th></th>
+<th style="text-align:center"></th>
+<th>Arduino Uno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>STATE</td>
+<td style="text-align:center">(실제 핀은 없음)</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>RXD</td>
+<td style="text-align:center">Receive Data</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>TXD</td>
+<td style="text-align:center">Transmit Date</td>
+<td>7</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+<td style="text-align:center">GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>5</td>
+<td>VCC</td>
+<td style="text-align:center">+5V</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>6</td>
+<td>KEY</td>
+<td style="text-align:center">(실제 핀은 없음)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="회로도"><a href="#회로도" class="headerlink" title="회로도"></a>회로도</h4><p><img src="https://i.imgur.com/W2qbgpb.jpg" alt="Imgur"></p>
+<h4 id="sketch"><a href="#sketch" class="headerlink" title="sketch"></a>sketch</h4><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SoftwareSerial.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">SoftwareSerial</span> BTSerial(<span class="number">7</span>, <span class="number">3</span>); <span class="comment">//Connect HC-06 TX,RX </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>()  </span><br><span class="line"> &#123;</span><br><span class="line">   <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">   <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"Hello!"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// set the data rate for the BT port</span></span><br><span class="line">   BTSerial.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>()</span><br><span class="line"> &#123;</span><br><span class="line">   <span class="function">if</span> (BTSerial.<span class="built_in">available</span>())</span><br><span class="line">     <span class="built_in">Serial</span>.<span class="built_in">write</span>(BTSerial.<span class="built_in">read</span>());</span><br><span class="line">   <span class="function">if</span> (<span class="built_in">Serial</span>.<span class="built_in">available</span>())</span><br><span class="line">     BTSerial.<span class="built_in">write</span>(<span class="built_in">Serial</span>.<span class="built_in">read</span>());</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="초기-셋팅"><a href="#초기-셋팅" class="headerlink" title="초기 셋팅"></a>초기 셋팅</h4><hr>
+<p>HC-06 모듈을 처음 사용한다면, AT 명령어 세트를 사용하여 세팅을 해주어야 합니다. 이전에 셋팅을 하였더라도 블루투스 모듈ID,  페어링 암호 등을 새롭게 세팅할 경우에도 아래와 같은 작업을 해주면 되고요.</p>
+<h4 id="HC-06의-AT-명령어-세트"><a href="#HC-06의-AT-명령어-세트" class="headerlink" title="HC-06의 AT 명령어 세트"></a>HC-06의 AT 명령어 세트</h4><p>먼저 사용되는 AT 명령어 세트 몇가지를 알아보겠습니다.</p>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th style="text-align:center">Serial Monitor 출력 결과</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AT</td>
+<td style="text-align:center">OK</td>
+<td>접속상태 확인</td>
+</tr>
+<tr>
+<td>AT+NAMESKS100</td>
+<td style="text-align:center">OKsetname</td>
+<td>블루투스 모듈ID 지정 (SKS100)</td>
+</tr>
+<tr>
+<td>AT+PIN0000</td>
+<td style="text-align:center">OKsetPIN</td>
+<td>페어링 암호 설정 (0000)</td>
+</tr>
+<tr>
+<td>AT+BAUD4</td>
+<td style="text-align:center">OK9600</td>
+<td>통신속도 설정 (4 → 9600bps)</td>
+</tr>
+<tr>
+<td>AT+VERSION</td>
+<td style="text-align:center">OKlinvorV1.8</td>
+<td>HC-06 버전 확인</td>
+</tr>
+<tr>
+<td>AT+ROLE=S</td>
+<td style="text-align:center">OK+ROLE:S</td>
+<td>SLAVE 역할</td>
+</tr>
+<tr>
+<td>AT+ROLE=M</td>
+<td style="text-align:center">OK+ROLE:M</td>
+<td>MASTER 역할 (v1.7 이상만 가능)</td>
+</tr>
+<tr>
+<td>AT+ROLE</td>
+<td style="text-align:center">OK+ROLE:</td>
+<td>MASTER/SLAVE 확인</td>
+</tr>
+</tbody>
+</table>
+<h4 id="페어링-과정-1-시리얼-모니터"><a href="#페어링-과정-1-시리얼-모니터" class="headerlink" title="페어링 과정(1): 시리얼 모니터"></a>페어링 과정(1): 시리얼 모니터</h4><p>먼저 아두이노IDE의 시리얼 모니터를 엽니다. </p>
+<p>※ 이때, 주의할 점이 있는데요. 시리얼 모니터를 열기 전에 스마트폰과 HC-06의 블루투스 연결은 해제된 상태여야 합니다. 기존에 HC-06과 스마트폰을 연결한 적이 있다면, 자기도 모르게 블루투스 연결이 자동으로 되어 있을 수 있는데요. 이런 경우에는 시리얼 모니터가 열리지 않아요.</p>
+<p><img src="https://i.imgur.com/cqcE7vl.jpg" alt="Imgur"></p>
+<p>위 스케치를 아두이노에 업로드 한 상태에서 시리얼 모니터를 열면, Hello!라는 글자가 뜹니다.</p>
+<p>AT를 입력하고</p>
+<p><img src="https://i.imgur.com/a3NCQzl.jpg" alt="Imgur"></p>
+<p>전송을 누르면 OK가 뜹니다. 이것은 아두이노IDE를 통해 HC-06과 연결이 정상적으로 되었음을 의미해요.</p>
+<p><img src="https://i.imgur.com/HMXqUgR.jpg" alt="Imgur"></p>
+<p>블루투스 모듈ID를 설정해보겠습니다. SKS100이라는 ID로 지정하기 위해 AT+NAMESKS100이라고 입력한 뒤, 전송을 누릅니다.</p>
+<p><img src="https://imgur.com/1q3ds1n.jpg" alt="Imgur"></p>
+<p>그러면 OKsetname이라고 출력이 되면서, 블루투스 모듈ID가 SKS100으로 셋팅이 됩니다.</p>
+<p><img src="https://imgur.com/hEySfp8.jpg" alt="Imgur"></p>
+<p>이번에는 페어링 암호 설정입니다. AT+PIN0000을 입력하고 전송을 누르면</p>
+<p><img src="https://imgur.com/tFOzl7V.jpg" alt="Imgur"></p>
+<p>OKsetPIN이 출력되면서 페어링 암호가 0000으로 설정됩니다.</p>
+<p><img src="https://imgur.com/uFhZVKo.jpg" alt="Imgur"></p>
+<p>통신속도 설정입니다. HC-06은 주로 9600bps를 사용하며, 이를 위해 AT+BAUD4를 입력한 뒤 전송을 누릅니다.</p>
+<p><img src="https://imgur.com/2d6HDpH.jpg" alt="Imgur"></p>
+<p>OK9600이 출력되요.</p>
+<p><img src="https://imgur.com/XXcF6DJ.jpg" alt="Imgur"></p>
+<p>여기까지 진행하면 대체적으로 HC-06을 사용할 준비가 되었다고 볼 수 있어요.</p>
+<h4 id="페어링-과정-2-안드로이드-스마트폰에서"><a href="#페어링-과정-2-안드로이드-스마트폰에서" class="headerlink" title="페어링 과정(2): 안드로이드 스마트폰에서"></a>페어링 과정(2): 안드로이드 스마트폰에서</h4><p>이제 스마트폰에서 블루투스 모드를 켜세요. (아래 화면은 스마트폰 기종마다 조금은 다를 수 있습니다. 아래 화면은 Mi폰을 기준으로 하였으며, 화면이 다르더라도 거의 비슷할 거에요.) 그리고 새로고침을 통해 블루투스 기기를 찾습니다.</p>
+<p><img src="https://imgur.com/z4wpdtK.jpg" alt="Imgur"></p>
+<p>‘거의 이용하지 않는 기기’ 하나를 찾았네요. 그곳을 누르면</p>
+<p>조금전에 설정한 블루투스 모듈ID인 SKS100이 보입니다. 여기를 누르세요.</p>
+<p><img src="https://imgur.com/BEyverK.jpg" alt="Imgur"></p>
+<p>블루투스 모듈과 페어링을 하기 위한 암호 입력화면이 나오고, 여기에 AT명령어를 통해 입력한 암호를 넣어줍니다.</p>
+<p><img src="https://imgur.com/jgJK8ac.jpg" alt="Imgur"></p>
+<p>그러면 스마트폰이 SKS100 모듈에 페어링을 시도합니다.</p>
+<p><img src="https://imgur.com/6buGQwa.jpg" alt="Imgur"></p>
+<p>거의 이용하지 않는 블루투스 기기 부분을 누르면</p>
+<p><img src="https://imgur.com/vn2nduH.jpg" alt="Imgur"></p>
+<p>페어링된 기기 목록에 SKS100이 뜹니다. 여기까지 진행하면, 스마트폰과 HC-06이 페어링 완료된 거에요.</p>
+<p><img src="https://imgur.com/skopH9X.jpg" alt="Imgur"></p>
+<p>####스마트폰에 Bluetooth Serial Controller 앱 설치하기</p>
+<p>이제 스마트폰에 Bluetooth Serial Controller 앱을 설치합니다. Google Playstore를 통해서 설치하는 것이 원칙이지만, 학교에서 많은 학생들이 한번에 인터넷에 접속하는 것이 쉽지 않으므로, USB 등으로 apk 파일로 배포하였어요. 스마트폰에 파일을 복사한 뒤에, 앱을 설치합니다. </p>
+<p><img src="https://imgur.com/kR5h4B2.jpg" alt="Imgur"></p>
+<p>비슷한 역할을 하는 수많은 앱들이 있는데, 여러 앱을 설치하고 사용해본 결과, 이 앱이 사용하기에 유연함을 갖고 있는 것 같더군요.</p>
+<p>설치되었습니다.</p>
+<p><img src="https://imgur.com/aEXjwZP.jpg" alt="Imgur"></p>
+<p>설치 후 처음 실행을 하면, LANDSCAPE 모드(가로모드)로 실행이 되는데요. 그대로 사용해도 무방하지만 PORTRAIT 모드(세로 모드)로 바꿔보겠습니다. 먼저 PREFERENCE를 누르세요.</p>
+<p><img src="https://imgur.com/rrQrW1u.jpg" alt="Imgur"></p>
+<p>그러면 아래 화면이 뜹니다. 아무곳이나 누르고 위로 스크롤을 하면 아래에 숨겨져 있는 메뉴가 나타나게 되는데요.</p>
+<p><img src="https://imgur.com/9Kf9jOa.jpg" alt="Imgur"></p>
+<p>OPTION - Orientation을 선택한 뒤,</p>
+<p><img src="https://imgur.com/wfcV7CP.jpg" alt="Imgur"></p>
+<p>PORTRAIT를 누릅니다.</p>
+<p><img src="https://imgur.com/dsfcvl0.jpg" alt="Imgur"></p>
+<p>이제 세로모드로 나타나요. 이제 HC-06모듈과 스마트폰과의 Serial 통신을 해보도록 하겠습니다. 다시 PREFERENCE를 누르고, TERMINAL MODE를 활성화 시키세요.</p>
+<p><img src="https://imgur.com/JaixMRq.jpg" alt="Imgur"></p>
+<p>아래 화면이 TERMINAL Mode 화면입니다. 여기서 돋보기 모양을 누르고,</p>
+<p><img src="https://imgur.com/0AebmDp.jpg" alt="Imgur"></p>
+<p>Paired Devices 목록에서 SKS100을 선택하세요. 그러면 TERMINAL이 HC-06에 접속하여, 서로간 통신할 수 있는 상태가 됩니다. </p>
+<p><img src="https://imgur.com/g7XSLrH.jpg" alt="Imgur"></p>
+<p>만일, 아래와 같이 Paired Devices 목록이 없으면, Scan for devices를 눌러 HC-06을 찾아보세요.</p>
+<p><img src="https://imgur.com/b0HiMPW.jpg" alt="Imgur"></p>
+<p>TERMINAL이 SKS100에 접속을 시도합니다.</p>
+<p><img src="https://imgur.com/xRRR6w5.jpg" alt="Imgur"></p>
+<p>접속 완료!</p>
+<p><img src="https://imgur.com/2itT2qd.jpg" alt="Imgur"></p>
+<p>####터미널과 Serial 통신하기</p>
+<p>이제 터미널 창에 Test를 입력하고 SEND를 눌러보세요.</p>
+<p><img src="https://imgur.com/faOVJgT.jpg" alt="Imgur"></p>
+<p>그러면 화면에 Test가 출력됨과 동시에,</p>
+<p><img src="https://imgur.com/E72pZlA.jpg" alt="Imgur"></p>
+<p>시리얼 모니터에 Test가 출력됩니다. 즉, TERMINAL에서 입력한 Test라는 글자가 HC-06을 통해, 아두이노와 연결되어 있는 컴퓨터의 시리얼 모니터에 출력된 것이에요.</p>
+<p><img src="https://imgur.com/uP2JKYO.jpg" alt="Imgur"></p>
+<p>이번에는 반대로 시리얼 모니터에 Good morning! 을 입력하고 전송을 누르면</p>
+<p><img src="https://imgur.com/oq9OZVU.jpg" alt="Imgur"></p>
+<p>스마트폰의 TERMINAL에 Good morning! 이 출력됩니다.</p>
+<p><img src="https://imgur.com/sIGPkyk.jpg" alt="Imgur"></p>
+<h3 id="HC-05-모듈에-대하여"><a href="#HC-05-모듈에-대하여" class="headerlink" title="HC-05 모듈에 대하여"></a>HC-05 모듈에 대하여</h3><hr>
+<p>요즘은 잘 사용하지 않지만, HC-05를 사용하기도 합니다. 생김새가 거의 비슷하지만, 몇가지 차이점이 있는데요. 보통 HC-06과 구별하기 위하여, HC-05에는 칩 위에 V형태로 체크를 해두거나, 화이트로 하얀색 점을 찍어두는 경우가 많습니다. 그리고, 가장 큰 차이점은 HC-05의 경우 6개의 핀이 모두 존재해요.</p>
+<p><img src="https://imgur.com/yWmkAod.jpg" alt="Imgur"></p>
+<p>예전에는 HC-05는 Master, HC-06은 Slave로 나누어 쓰는 경우가 많았지만, HC-06의 버전이 1.7이상인 경우 Master, Slave를 선택하여 사용할 수 있게 되면서 HC-05를 잘 사용하지 않게 되었어요.</p>
+<h4 id="Pin-Map-1"><a href="#Pin-Map-1" class="headerlink" title="Pin Map"></a>Pin Map</h4><table>
+<thead>
+<tr>
+<th>HC-05 Pin</th>
+<th></th>
+<th style="text-align:center"></th>
+<th>Arduino Uno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>STATE</td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>RXD</td>
+<td style="text-align:center">Receive Data</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>TXD</td>
+<td style="text-align:center">Transmit Date</td>
+<td>7</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+<td style="text-align:center">GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>5</td>
+<td>VCC</td>
+<td style="text-align:center">+5V</td>
+<td>+5V</td>
+</tr>
+<tr>
+<td>6</td>
+<td>KEY (ENABLE)</td>
+<td style="text-align:center">AT command 진입을 위한 핀</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<h4 id="HC-05의-AT-명령어-세트"><a href="#HC-05의-AT-명령어-세트" class="headerlink" title="HC-05의 AT 명령어 세트"></a>HC-05의 AT 명령어 세트</h4><p>HC-05의 AT 명령어 세트는 HC-06과 약간 다릅니다.</p>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th style="text-align:center">Serial Monitor 출력 결과</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AT</td>
+<td style="text-align:center">OK</td>
+<td>접속상태 확인</td>
+</tr>
+<tr>
+<td>AT+NAMESKS100</td>
+<td style="text-align:center">OKsetname</td>
+<td>블루투스 모듈ID 지정 (SKS100)</td>
+</tr>
+<tr>
+<td>AT+PSWD=0000</td>
+<td style="text-align:center">OKsetPIN</td>
+<td>페어링 암호 설정 (0000)</td>
+</tr>
+<tr>
+<td>AT+BAUD6</td>
+<td style="text-align:center">OK9600</td>
+<td>통신속도 설정 (6 → 38400bps)</td>
+</tr>
+<tr>
+<td>AT+VERSION</td>
+<td style="text-align:center">OKlinvorV1.8</td>
+<td>HC-06 버전 확인</td>
+</tr>
+<tr>
+<td>AT+ROLE=0</td>
+<td style="text-align:center">OK+ROLE:0</td>
+<td>SLAVE 역할</td>
+</tr>
+<tr>
+<td>AT+ROLE=1</td>
+<td style="text-align:center">OK+ROLE:1</td>
+<td>MASTER 역할</td>
+</tr>
+<tr>
+<td>AT+ROLE=?</td>
+<td style="text-align:center">OK+ROLE:</td>
+<td>MASTER/SLAVE 확인</td>
+</tr>
+</tbody>
+</table>
+<p>※ HC-05의 경우, 통신속도의 기본값은 38400bps 입니다.</p>
+<p>####회로도</p>
+<p><img src="https://imgur.com/j6HYtuH.jpg" alt="Imgur"></p>
+<h4 id="sketch-1"><a href="#sketch-1" class="headerlink" title="sketch"></a>sketch</h4><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SoftwareSerial.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> KEY 8</span></span><br><span class="line"><span class="built_in">SoftwareSerial</span> BTSerial(<span class="number">7</span>, <span class="number">3</span>); <span class="comment">//Connect HC-06 TX,RX </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>()  </span><br><span class="line"> &#123;</span><br><span class="line">   <span class="built_in">pinMode</span>(KEY, <span class="symbol">OUTPUT</span>);       <span class="comment">//for HC-05</span></span><br><span class="line">   <span class="built_in">digitalWrite</span>(KEY, <span class="symbol">HIGH</span>);</span><br><span class="line">   <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">   <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"Hello!"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// set the data rate for the BT port</span></span><br><span class="line">   BTSerial.<span class="built_in">begin</span>(<span class="number">38400</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>()</span><br><span class="line"> &#123;</span><br><span class="line">   <span class="function">if</span> (BTSerial.<span class="built_in">available</span>())</span><br><span class="line">     <span class="built_in">Serial</span>.<span class="built_in">write</span>(BTSerial.<span class="built_in">read</span>());</span><br><span class="line">   <span class="function">if</span> (<span class="built_in">Serial</span>.<span class="built_in">available</span>())</span><br><span class="line">     BTSerial.<span class="built_in">write</span>(<span class="built_in">Serial</span>.<span class="built_in">read</span>());</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="CC2541-모듈에-대하여"><a href="#CC2541-모듈에-대하여" class="headerlink" title="CC2541 모듈에 대하여"></a>CC2541 모듈에 대하여</h3><hr>
+<p>HC-06, HC-05는 아이폰과 호환이 되지 않습니다. 그러므로 아이폰으로 블루투스 통신을 하기 위해서는 CC2541, HM-10, HC-02 같은 모듈을 사용해야 해요.</p>
+<p><img src="https://imgur.com/yzn4DXh.jpg" alt="Imgur"></p>
+<p>연결방법이나 AT명령어 세트는 HC-06과 비슷해요. 주의 할 점은, 시리얼 모니터에서 Both NL &amp; CR 모드를 선택해주어야 하는 것입니다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://chemidot.github.io/2018/10/09/2018-10-09-Bluetooth-페어링/" data-id="cjv23k7ho00461kb91snivhnv" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "chemidot"
+        },
+        "headline": "Bluetooth 페어링",
+        "image": "http://chemidot.github.iohttps://i.imgur.com/Lbo12LG.jpg",
+        "keywords": "Arduino",
+        "genre": "렛츠아두이노",
+        "datePublished": "2018-10-09",
+        "dateCreated": "2018-10-09",
+        "dateModified": "2018-10-14",
+        "url": "http://chemidot.github.io/2018/10/09/2018-10-09-Bluetooth-페어링/",
+        "description": "Bluetooth 페어링아두이노에서 블루투스를 이용하는 방법을 알아보겠습니다. 
+Bluetooth 모듈 HC-06
+기본적으로 사용되는 모듈은 HC-06입니다. 
+
+Pin Map
+
+
+HC-06 Pin
+
+
+Arduino Uno
+
+
+
+
+1
+STATE
+(실제 핀은 없음)
+
+
+
+2
+RXD
+Receive Data
+3
+
+
+3
+TXD
+Transmit Date
+7
+
+
+4
+"
+        "wordCount": 1085
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            Bluetooth 4WD Controller
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/01/31/2018-01-31-연수기-DIY/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">연수기 DIY</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/irAO9rT.jpg)" alt="Bluetooth 4WD" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="title">Bluetooth 4WD</a></p>
+                            <p class="item-date"><time datetime="2018-10-11T09:27:53.000Z" itemprop="datePublished">2018-10-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://imgur.com/B1dxP00.jpg)" alt="Bluetooth 4WD Controller" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="title">Bluetooth 4WD Controller</a></p>
+                            <p class="item-date"><time datetime="2018-10-10T09:27:53.000Z" itemprop="datePublished">2018-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/Lbo12LG.jpg)" alt="Bluetooth 페어링" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="title">Bluetooth 페어링</a></p>
+                            <p class="item-date"><time datetime="2018-10-09T09:27:53.000Z" itemprop="datePublished">2018-10-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/31/2018-01-31-연수기-DIY/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/4dgI0uA.png)" alt="연수기 DIY" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/알쓸신잡/">알쓸신잡</a></p>
+                            <p class="item-title"><a href="/2018/01/31/2018-01-31-연수기-DIY/" class="title">연수기 DIY</a></p>
+                            <p class="item-date"><time datetime="2018-01-31T09:27:53.000Z" itemprop="datePublished">2018-01-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/미니노트/">미니노트</a></p>
+                            <p class="item-title"><a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="title">캘리그래피 노트 2017-2학기</a></p>
+                            <p class="item-date"><time datetime="2017-12-10T09:27:53.000Z" itemprop="datePublished">2017-12-10</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/과학/">과학</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/놀이터/">놀이터</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미니노트/">미니노트</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/알쓸신잡/">알쓸신잡</a><span class="category-list-count">18</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10월 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">1월 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">10월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">4월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">12월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">11월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">12월 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">10월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">7월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">3월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">7월 2009</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/">DIY</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LG070/">LG070</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/beijing/">beijing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/billboard/">billboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/china/">china</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hongkong/">hongkong</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kisb/">kisb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shanghai/">shanghai</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sks/">sks</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/생활/">생활</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/스마트폰/">스마트폰</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/재외국민/">재외국민</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/전기요금/">전기요금</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/캘리그래피/">캘리그래피</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/화학/">화학</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Arduino/" style="font-size: 20px;">Arduino</a> <a href="/tags/DIY/" style="font-size: 13.33px;">DIY</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/LG070/" style="font-size: 10px;">LG070</a> <a href="/tags/beijing/" style="font-size: 13.33px;">beijing</a> <a href="/tags/billboard/" style="font-size: 10px;">billboard</a> <a href="/tags/china/" style="font-size: 20px;">china</a> <a href="/tags/hongkong/" style="font-size: 10px;">hongkong</a> <a href="/tags/kisb/" style="font-size: 13.33px;">kisb</a> <a href="/tags/shanghai/" style="font-size: 10px;">shanghai</a> <a href="/tags/sks/" style="font-size: 13.33px;">sks</a> <a href="/tags/생활/" style="font-size: 13.33px;">생활</a> <a href="/tags/스마트폰/" style="font-size: 16.67px;">스마트폰</a> <a href="/tags/재외국민/" style="font-size: 10px;">재외국민</a> <a href="/tags/전기요금/" style="font-size: 13.33px;">전기요금</a> <a href="/tags/캘리그래피/" style="font-size: 13.33px;">캘리그래피</a> <a href="/tags/화학/" style="font-size: 10px;">화학</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 chemidot</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://chemidot.github.io/2018/10/09/2018-10-09-Bluetooth-페어링/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    </div>
+</body>
+</html>

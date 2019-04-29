@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>서보모터 사용하기 | de la Cruz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Arduino">
+    
+    <meta name="description" content="모터의 종류 아두이노에서 사용하는 모터의 종류에는 3가지가 있습니다.  DC모터 전기를 인가하면 회전력이 발생하는 가장 간단한 구조의 모터 보통 선이 2가닥이며, 정밀제어 불가   서보모터 (아두이노에서는 주로 TowerPro SG90를 많이 사용) 기어 박스를 포함하고 있는 형태의 모터. 기어 박스에 모터드라이버, 회전센서, 모터, 제어회로가 내장 보통">
+<meta name="keywords" content="Arduino">
+<meta property="og:type" content="article">
+<meta property="og:title" content="서보모터 사용하기">
+<meta property="og:url" content="http://chemidot.github.io/2017/11/20/2017-11-20-서보모터-사용하기/index.html">
+<meta property="og:site_name" content="de la Cruz">
+<meta property="og:description" content="모터의 종류 아두이노에서 사용하는 모터의 종류에는 3가지가 있습니다.  DC모터 전기를 인가하면 회전력이 발생하는 가장 간단한 구조의 모터 보통 선이 2가닥이며, 정밀제어 불가   서보모터 (아두이노에서는 주로 TowerPro SG90를 많이 사용) 기어 박스를 포함하고 있는 형태의 모터. 기어 박스에 모터드라이버, 회전센서, 모터, 제어회로가 내장 보통">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://i.imgur.com/TXrMgiQ.jpg">
+<meta property="og:updated_time" content="2018-10-30T07:49:20.427Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="서보모터 사용하기">
+<meta name="twitter:description" content="모터의 종류 아두이노에서 사용하는 모터의 종류에는 3가지가 있습니다.  DC모터 전기를 인가하면 회전력이 발생하는 가장 간단한 구조의 모터 보통 선이 2가닥이며, 정밀제어 불가   서보모터 (아두이노에서는 주로 TowerPro SG90를 많이 사용) 기어 박스를 포함하고 있는 형태의 모터. 기어 박스에 모터드라이버, 회전센서, 모터, 제어회로가 내장 보통">
+<meta name="twitter:image" content="https://i.imgur.com/TXrMgiQ.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="de la Cruz" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">a la fecha</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/과학/">과학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/놀이터/">놀이터</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/미니노트/">미니노트</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알쓸신잡/">알쓸신잡</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/렛츠아두이노/">렛츠아두이노</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2017-11-20-서보모터-사용하기" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        서보모터 사용하기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/11/20/2017-11-20-서보모터-사용하기/" class="article-date">
+            <time datetime="2017-11-20T09:27:53.000Z" itemprop="datePublished">2017-11-20</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Arduino/">Arduino</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="모터의-종류"><a href="#모터의-종류" class="headerlink" title="모터의 종류"></a>모터의 종류</h3><hr>
+<p>아두이노에서 사용하는 모터의 종류에는 3가지가 있습니다.</p>
+<ul>
+<li>DC모터<ul>
+<li>전기를 인가하면 회전력이 발생하는 가장 간단한 구조의 모터</li>
+<li>보통 선이 2가닥이며, 정밀제어 불가</li>
+</ul>
+</li>
+<li>서보모터 (아두이노에서는 주로 TowerPro SG90를 많이 사용)<ul>
+<li>기어 박스를 포함하고 있는 형태의 모터. 기어 박스에 모터드라이버, 회전센서, 모터, 제어회로가 내장</li>
+<li>보통 선이 3가닥이며, 회전수 각도 등의 움직임 제어가 가능</li>
+<li>SG90은 0~180˚ 제어가 가능해요. 그러므로, 자동차 바퀴를 회전시키는 용도로는 사용할 수 없음. 단, 자동차의 진행방향을 바꾸는 역할을 할 수 있음.  (회전하는 바퀴는 0~360˚ 제어가 가능한 제품을 사용해야 함)</li>
+<li>스테핑모터보다 힘이 강함</li>
+<li>아두이노UNO의 USB 전류량 제한인 500mA에 따라 1~2개의 서보모터만 사용 가능 </li>
+</ul>
+</li>
+<li>스테핑모터<ul>
+<li>전기 인가시 모터 내부에서 축자체가 기어스텝을 한개씩 돌리도록 제어하여 매우 정밀하게 작동</li>
+<li>보통 선이 5가닥임</li>
+<li>서보모터보다 힘이 약함</li>
+</ul>
+</li>
+</ul>
+<h3 id="서보모터-사용하기"><a href="#서보모터-사용하기" class="headerlink" title="서보모터 사용하기"></a>서보모터 사용하기</h3><hr>
+<h4 id="회로도"><a href="#회로도" class="headerlink" title="회로도"></a>회로도</h4><p><img src="https://i.imgur.com/TXrMgiQ.jpg" alt="서보모터"></p>
+<h4 id="서보모터-라이브러리-추가하기"><a href="#서보모터-라이브러리-추가하기" class="headerlink" title="서보모터 라이브러리 추가하기"></a>서보모터 라이브러리 추가하기</h4><p>Servo 라이브러리는 아두이노 IDE에 기본으로 포함되어 있으므로, <code>스케치</code> → <code>라이브러리 포함하기</code> →<code>Servo</code> 를 선택하면</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Servo.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>가 스케치에 추가되며, 이렇게 라이브러리를 추가해 주어야 서보모터를 사용할 수 있습니다.</p>
+<h4 id="sketch-서보모터-180도-회전시키기"><a href="#sketch-서보모터-180도-회전시키기" class="headerlink" title="sketch : 서보모터 180도 회전시키기"></a>sketch : 서보모터 180도 회전시키기</h4><p>아래 스케치는 서보모터를 180도 만큼 회전시킨 후, 다시 원래의 위치로 역회전하는 간단한 예제입니다.</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Servo.h&gt;</span>                  </span></span><br><span class="line"><span class="built_in">Servo</span> servomotor;              <span class="comment">// servomotor 선언</span></span><br><span class="line"><span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123;</span><br><span class="line">  servomotor.<span class="built_in">attach</span>(<span class="number">10</span>);       <span class="comment">// servomotor 핀 설정</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>() &#123;</span><br><span class="line">  <span class="function">for</span>(pos = <span class="number">0</span>; pos &lt; <span class="number">180</span>; pos++)</span><br><span class="line">  &#123;</span><br><span class="line">    servomotor.<span class="built_in">write</span>(pos);            <span class="comment">// pos값의 위치로 이동</span></span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">15</span>);                        <span class="comment">// 1도 위치로 갔다가 0.015초 뒤에 2도 위치로 이동하고</span></span><br><span class="line">  &#125;                                   <span class="comment">// 다시 0.015초 뒤에 3도 위치로 이동하는 식으로 회전</span></span><br><span class="line">  <span class="function">for</span>(pos = <span class="number">180</span>; pos &gt; <span class="number">0</span>; pos--)      <span class="comment">// 같은 방법으로 역회전</span></span><br><span class="line">  &#123;</span><br><span class="line">    servomotor.<span class="built_in">write</span>(pos);</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">15</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>for문을 사용하는 것과, for문을 사용하지 않고 servomotor.write(180)을 하는 것에는 조금 차이가 있어요.<ul>
+<li>for문을 사용하면 delay 시간에 따라서 회전 속도를 조절할 수 있지만,</li>
+<li>for문을 사용하지 않으면, 180도 위치로 바로 이동한다는 것입니다.</li>
+</ul>
+</li>
+<li>servomotor.write(숫자)를 사용할때, 숫자는 ‘회전각’을 의미하는 것이 아니며, 초기 위치를 0도로 기준삼아 숫자의 각도에 위치하라는 뜻입니다. 예를들어서<ul>
+<li>servomotor.write(90)와 servomotor.write(30)을 연속으로 실행하면 몇도를 회전하게 될까요?</li>
+<li>90도를 회전한 뒤, 추가로 30도를 회전하여 120도 위치에 있다 → 틀렸습니다.</li>
+<li>90도의 위치로 회전한 뒤, 다시 30도의 위치로 역회전하여 돌아갑니다. 즉, 30도의 위치에 있게 되는 거에요.</li>
+</ul>
+</li>
+</ul>
+<h4 id="sketch-시리얼-모니터를-이용해서-각도값을-입력-받아-각도-값이-변하도록-하기"><a href="#sketch-시리얼-모니터를-이용해서-각도값을-입력-받아-각도-값이-변하도록-하기" class="headerlink" title="sketch : 시리얼 모니터를 이용해서 각도값을 입력 받아 각도 값이 변하도록 하기"></a>sketch : 시리얼 모니터를 이용해서 각도값을 입력 받아 각도 값이 변하도록 하기</h4><p> 시리얼 모니터는 sketch 창의 왼쪽 상단에 있는 돋보기 모양을 누르거나, <code>툴</code> → <code>시리얼 모니터</code>를 선택하거나, <code>Ctrl-Shift-M</code>을 눌러 모니터 창을 띄울 수 있습니다. 모니터에 0~180까지의 값을 입력하면, 지정된 각도만큼 회전합니다.</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Servo.h&gt;</span></span></span><br><span class="line"><span class="built_in">Servo</span> servomotor;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123;</span><br><span class="line">  servomotor.<span class="built_in">attach</span>(<span class="number">10</span>);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);                  <span class="comment">// Serial 통신을 설정</span></span><br><span class="line">  <span class="function">while</span>(!<span class="built_in">Serial</span>);                                           </span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"Servor Mortor"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>() &#123;</span><br><span class="line">  <span class="function">if</span>(<span class="built_in">Serial</span>.<span class="built_in">available</span>())&#123;              <span class="comment">// Serial 모니터창에 어떤 값이 들어오면 실행</span></span><br><span class="line">    a = <span class="built_in">Serial</span>.<span class="built_in">parseInt</span>();             <span class="comment">// Serial 모니터창에서 받은 값을 a에 넘겨줌</span></span><br><span class="line">    <span class="function">if</span>(a&gt;=<span class="number">0</span> &amp;&amp; a&lt;=<span class="number">180</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">"angle : "</span>);</span><br><span class="line">      <span class="built_in">Serial</span>.<span class="built_in">println</span>(a);</span><br><span class="line">      servomotor.<span class="built_in">write</span>(a);             <span class="comment">// a값에 해당하는 각도의 위치로 이동</span></span><br><span class="line">      <span class="built_in">delay</span>(<span class="number">15</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="keypad-입력값을-받아-회전시키기"><a href="#keypad-입력값을-받아-회전시키기" class="headerlink" title="keypad 입력값을 받아 회전시키기"></a>keypad 입력값을 받아 회전시키기</h3><hr>
+<h4 id="회로도-1"><a href="#회로도-1" class="headerlink" title="회로도"></a>회로도</h4><p><img src="https://i.imgur.com/nrQZhiI.jpg" alt="keypad값 만큼 회전시키기"></p>
+<h4 id="sketch"><a href="#sketch" class="headerlink" title="sketch"></a>sketch</h4><p>위의 예제를 응용하여, 시리얼 모니터가 아닌 키패드의 입력값에 따라 회전시켜 보는 예제입니다.</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Servo.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Keypad.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Servo</span> servomotor;</span><br><span class="line"><span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">byte</span> ROWS = <span class="number">4</span>;                          <span class="comment">// 키패드 배열 선언</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">byte</span> COLS = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> keys[ROWS][COLS] = &#123;                     <span class="comment">// 키패드 정의</span></span><br><span class="line">  &#123;<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'A'</span>&#125;,</span><br><span class="line">  &#123;<span class="string">'4'</span>,<span class="string">'5'</span>,<span class="string">'6'</span>,<span class="string">'B'</span>&#125;,</span><br><span class="line">  &#123;<span class="string">'7'</span>,<span class="string">'8'</span>,<span class="string">'9'</span>,<span class="string">'C'</span>&#125;,</span><br><span class="line">  &#123;<span class="string">'*'</span>,<span class="string">'0'</span>,<span class="string">'#'</span>,<span class="string">'D'</span>&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">byte</span> rowPins[ROWS] = &#123;<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>&#125;;            <span class="comment">// 키패드 연결 핀 설정</span></span><br><span class="line"><span class="keyword">byte</span> colPins[COLS] = &#123;<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>&#125;;</span><br><span class="line"></span><br><span class="line">Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123;</span><br><span class="line">  servomotor.<span class="built_in">attach</span>(<span class="number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>() &#123;</span><br><span class="line">  <span class="keyword">char</span> keyValue = keypad.<span class="built_in">getKey</span>();</span><br><span class="line">  </span><br><span class="line">  <span class="function">if</span>(keyValue) &#123;</span><br><span class="line">     <span class="function">switch</span>(keyValue) &#123;</span><br><span class="line">      <span class="function">case</span> <span class="string">'0'</span> :                    <span class="comment">// 시리얼 모니터에 0을 입력하면</span></span><br><span class="line">        servomotor.<span class="built_in">write</span>(<span class="number">0</span>);       <span class="comment">// 0도 위치로 이동</span></span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">15</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> <span class="string">'1'</span> :                    <span class="comment">// 시리얼 모니터에 1을 입력하면</span></span><br><span class="line">        servomotor.<span class="built_in">write</span>(<span class="number">15</span>);       <span class="comment">// 15도 위치로 이동</span></span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">15</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> <span class="string">'2'</span> :</span><br><span class="line">        servomotor.<span class="built_in">write</span>(<span class="number">30</span>);       <span class="comment">// 30도 위치로 이동</span></span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">15</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> <span class="string">'3'</span> :</span><br><span class="line">        servomotor.<span class="built_in">write</span>(<span class="number">45</span>);       <span class="comment">// 45도 위치로 이동</span></span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">15</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> <span class="string">'4'</span> :</span><br><span class="line">        servomotor.<span class="built_in">write</span>(<span class="number">60</span>);       <span class="comment">// 60도 위치로 이동</span></span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">15</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> <span class="string">'5'</span> :</span><br><span class="line">        servomotor.<span class="built_in">write</span>(<span class="number">75</span>);       <span class="comment">// 75도 위치로 이동</span></span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">15</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> <span class="string">'6'</span> :</span><br><span class="line">        servomotor.<span class="built_in">write</span>(<span class="number">90</span>);       <span class="comment">// 90도 위치로 이동</span></span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">15</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> <span class="string">'7'</span> :</span><br><span class="line">        servomotor.<span class="built_in">write</span>(<span class="number">120</span>);       <span class="comment">// 120도 위치로 이동</span></span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">15</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> <span class="string">'8'</span> :</span><br><span class="line">        servomotor.<span class="built_in">write</span>(<span class="number">150</span>);       <span class="comment">// 150도 위치로 이동</span></span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">15</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> <span class="string">'9'</span> :</span><br><span class="line">        servomotor.<span class="built_in">write</span>(<span class="number">180</span>);       <span class="comment">// 180도 위치로 이동</span></span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">15</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">default</span> :</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">10</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="sketch-비밀번호-확인하여-서보모터-돌리기"><a href="#sketch-비밀번호-확인하여-서보모터-돌리기" class="headerlink" title="sketch : 비밀번호 확인하여 서보모터 돌리기"></a>sketch : 비밀번호 확인하여 서보모터 돌리기</h4><p>서보모터의 날개를 금고의 개폐장치로 사용한다면, 비밀번호 금고를 만들수 있어요. 비밀번호가 맞는지 확인한 뒤 날개를 90˚ 회전시키는 방법을 사용해봅니다.</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Keypad.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Servo.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> tru=<span class="number">0</span>;                        <span class="comment">// 비밀번호가 맞는지 확인</span></span><br><span class="line"><span class="keyword">int</span> count=<span class="number">0</span>;                      <span class="comment">// 4자리수 카운트</span></span><br><span class="line"><span class="keyword">char</span> PW[<span class="number">4</span>]=&#123;<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'A'</span>&#125;;     <span class="comment">//비밀번호</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Servo</span> servomotor;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 키패드 설정 시작</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">byte</span> ROWS = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">byte</span> COLS = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">byte</span> rowPins[ROWS] = &#123;<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>&#125;;</span><br><span class="line"><span class="keyword">byte</span> colPins[COLS] = &#123;<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> keys[ROWS][COLS] = &#123;</span><br><span class="line">  &#123;<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>, <span class="string">'A'</span>&#125;,</span><br><span class="line">  &#123;<span class="string">'4'</span>,<span class="string">'5'</span>,<span class="string">'6'</span>, <span class="string">'B'</span>&#125;,</span><br><span class="line">  &#123;<span class="string">'7'</span>,<span class="string">'8'</span>,<span class="string">'9'</span>, <span class="string">'C'</span>&#125;,</span><br><span class="line">  &#123;<span class="string">'*'</span>,<span class="string">'0'</span>,<span class="string">'#'</span>, <span class="string">'D'</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );</span><br><span class="line"><span class="comment">// 키패드 설정 끝</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  servomotor.<span class="built_in">attach</span>(<span class="number">10</span>);          <span class="comment">// 서보모터 핀 설정</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>() &#123;</span><br><span class="line">  <span class="keyword">char</span> key = keypad.<span class="built_in">getKey</span>();     <span class="comment">// 키패드 입력 변수</span></span><br><span class="line"></span><br><span class="line">  <span class="function">if</span> (key) &#123;</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">println</span>(key);</span><br><span class="line">    <span class="function">if</span>(key==PW[count]) &#123;          <span class="comment">// 입력번호와 비밀번호가 맞으면</span></span><br><span class="line">        count++;                  <span class="comment">// 자리수 카운트 1증가</span></span><br><span class="line">        tru++;                    <span class="comment">// 맞은수 값 1증가</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function">else</span> <span class="function">if</span>(key!=PW[count]) &#123;    <span class="comment">// 입력번호와 비밀번호가 틀리면</span></span><br><span class="line">        count++;                  <span class="comment">// 자리수 카운트 값만 1증가</span></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="function">if</span>(key==<span class="string">'#'</span>)                 <span class="comment">// #을 누르면</span></span><br><span class="line">        re();                     <span class="comment">// 초기화</span></span><br><span class="line">     <span class="function">if</span>(count==<span class="number">4</span>) &#123;               <span class="comment">// 4자리 입력받은 값이</span></span><br><span class="line">        <span class="function">if</span>(tru==<span class="number">4</span>)                <span class="comment">// 모두 맞으면</span></span><br><span class="line">          Su();                   <span class="comment">// 성공</span></span><br><span class="line">        <span class="function">else</span>                      <span class="comment">// 그렇지 않으면(4자리는 입력했는데, 모두 맞지는 않았으면)</span></span><br><span class="line">          Fa();                   <span class="comment">// 실패</span></span><br><span class="line">        tru=<span class="number">0</span>;                    <span class="comment">// tru, count값 초기화</span></span><br><span class="line">        count=<span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Su() &#123;                          <span class="comment">// 성공했을 때 실행</span></span><br><span class="line">  servomotor.<span class="built_in">write</span>(<span class="number">90</span>);              <span class="comment">// 90도 돌려서 도어락 열림</span></span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"open the door"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> Fa() &#123;                        <span class="comment">// 실패한 경우는 도어락 잠금 유지</span></span><br><span class="line">  servomotor.<span class="built_in">write</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"close the door"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> re() &#123;                        <span class="comment">// 비밀번호 입력중 #을 입력하면 초기화하고 도어락 잠금 유지</span></span><br><span class="line">  tru=<span class="number">0</span>;</span><br><span class="line">  count=<span class="number">0</span>;</span><br><span class="line">  servomotor.<span class="built_in">write</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"password reset"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://chemidot.github.io/2017/11/20/2017-11-20-서보모터-사용하기/" data-id="cjv23k7hg003v1kb9iiiw9ghd" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "chemidot"
+        },
+        "headline": "서보모터 사용하기",
+        "image": "http://chemidot.github.iohttps://i.imgur.com/TXrMgiQ.jpg",
+        "keywords": "Arduino",
+        "genre": "렛츠아두이노",
+        "datePublished": "2017-11-20",
+        "dateCreated": "2017-11-20",
+        "dateModified": "2018-10-30",
+        "url": "http://chemidot.github.io/2017/11/20/2017-11-20-서보모터-사용하기/",
+        "description": "모터의 종류
+아두이노에서 사용하는 모터의 종류에는 3가지가 있습니다.
+
+DC모터
+전기를 인가하면 회전력이 발생하는 가장 간단한 구조의 모터
+보통 선이 2가닥이며, 정밀제어 불가
+
+
+서보모터 (아두이노에서는 주로 TowerPro SG90를 많이 사용)
+기어 박스를 포함하고 있는 형태의 모터. 기어 박스에 모터드라이버, 회전센서, 모터, 제어회로가 내장
+보통 "
+        "wordCount": 2785
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/11/22/2017-11-22-2018학년도-SKS신임교사-준비서류-하루만에-준비하기-in-서울/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            2018학년도 SKS신임교사 서류 준비하기 AtoZ
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/11/15/2017-11-15-키패드-사용하기/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">키패드 사용하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/irAO9rT.jpg)" alt="Bluetooth 4WD" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="title">Bluetooth 4WD</a></p>
+                            <p class="item-date"><time datetime="2018-10-11T09:27:53.000Z" itemprop="datePublished">2018-10-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://imgur.com/B1dxP00.jpg)" alt="Bluetooth 4WD Controller" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="title">Bluetooth 4WD Controller</a></p>
+                            <p class="item-date"><time datetime="2018-10-10T09:27:53.000Z" itemprop="datePublished">2018-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/Lbo12LG.jpg)" alt="Bluetooth 페어링" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="title">Bluetooth 페어링</a></p>
+                            <p class="item-date"><time datetime="2018-10-09T09:27:53.000Z" itemprop="datePublished">2018-10-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/31/2018-01-31-연수기-DIY/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/4dgI0uA.png)" alt="연수기 DIY" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/알쓸신잡/">알쓸신잡</a></p>
+                            <p class="item-title"><a href="/2018/01/31/2018-01-31-연수기-DIY/" class="title">연수기 DIY</a></p>
+                            <p class="item-date"><time datetime="2018-01-31T09:27:53.000Z" itemprop="datePublished">2018-01-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/미니노트/">미니노트</a></p>
+                            <p class="item-title"><a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="title">캘리그래피 노트 2017-2학기</a></p>
+                            <p class="item-date"><time datetime="2017-12-10T09:27:53.000Z" itemprop="datePublished">2017-12-10</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/과학/">과학</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/놀이터/">놀이터</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미니노트/">미니노트</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/알쓸신잡/">알쓸신잡</a><span class="category-list-count">18</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10월 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">1월 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">10월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">4월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">12월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">11월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">12월 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">10월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">7월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">3월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">7월 2009</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/">DIY</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LG070/">LG070</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/beijing/">beijing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/billboard/">billboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/china/">china</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hongkong/">hongkong</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kisb/">kisb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shanghai/">shanghai</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sks/">sks</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/생활/">생활</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/스마트폰/">스마트폰</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/재외국민/">재외국민</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/전기요금/">전기요금</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/캘리그래피/">캘리그래피</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/화학/">화학</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Arduino/" style="font-size: 20px;">Arduino</a> <a href="/tags/DIY/" style="font-size: 13.33px;">DIY</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/LG070/" style="font-size: 10px;">LG070</a> <a href="/tags/beijing/" style="font-size: 13.33px;">beijing</a> <a href="/tags/billboard/" style="font-size: 10px;">billboard</a> <a href="/tags/china/" style="font-size: 20px;">china</a> <a href="/tags/hongkong/" style="font-size: 10px;">hongkong</a> <a href="/tags/kisb/" style="font-size: 13.33px;">kisb</a> <a href="/tags/shanghai/" style="font-size: 10px;">shanghai</a> <a href="/tags/sks/" style="font-size: 13.33px;">sks</a> <a href="/tags/생활/" style="font-size: 13.33px;">생활</a> <a href="/tags/스마트폰/" style="font-size: 16.67px;">스마트폰</a> <a href="/tags/재외국민/" style="font-size: 10px;">재외국민</a> <a href="/tags/전기요금/" style="font-size: 13.33px;">전기요금</a> <a href="/tags/캘리그래피/" style="font-size: 13.33px;">캘리그래피</a> <a href="/tags/화학/" style="font-size: 10px;">화학</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 chemidot</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://chemidot.github.io/2017/11/20/2017-11-20-서보모터-사용하기/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    </div>
+</body>
+</html>

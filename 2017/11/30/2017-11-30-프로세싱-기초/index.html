@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>프로세싱 기초 | de la Cruz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Arduino">
+    
+    <meta name="description" content="Processing  processing.org 에서 다운로드 (다운로드 페이지) arduino sketch는 C++기반이고, processing sketch는 java기반입니다.  processing sketch 예제1) 예제1 : 프로세싱 윈도우 크기, 배경색, 점, 선, 사각형, 원, 텍스트, 폰트, 사진 입력 1234567891011121314151">
+<meta name="keywords" content="Arduino">
+<meta property="og:type" content="article">
+<meta property="og:title" content="프로세싱 기초">
+<meta property="og:url" content="http://chemidot.github.io/2017/11/30/2017-11-30-프로세싱-기초/index.html">
+<meta property="og:site_name" content="de la Cruz">
+<meta property="og:description" content="Processing  processing.org 에서 다운로드 (다운로드 페이지) arduino sketch는 C++기반이고, processing sketch는 java기반입니다.  processing sketch 예제1) 예제1 : 프로세싱 윈도우 크기, 배경색, 점, 선, 사각형, 원, 텍스트, 폰트, 사진 입력 1234567891011121314151">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2017-11-29T14:54:51.431Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="프로세싱 기초">
+<meta name="twitter:description" content="Processing  processing.org 에서 다운로드 (다운로드 페이지) arduino sketch는 C++기반이고, processing sketch는 java기반입니다.  processing sketch 예제1) 예제1 : 프로세싱 윈도우 크기, 배경색, 점, 선, 사각형, 원, 텍스트, 폰트, 사진 입력 1234567891011121314151">
+    
+
+    
+        <link rel="alternate" href="/" title="de la Cruz" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">a la fecha</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/과학/">과학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/놀이터/">놀이터</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/미니노트/">미니노트</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알쓸신잡/">알쓸신잡</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/렛츠아두이노/">렛츠아두이노</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2017-11-30-프로세싱-기초" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        프로세싱 기초
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/11/30/2017-11-30-프로세싱-기초/" class="article-date">
+            <time datetime="2017-11-30T09:27:53.000Z" itemprop="datePublished">2017-11-30</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Arduino/">Arduino</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="Processing"><a href="#Processing" class="headerlink" title="Processing"></a>Processing</h3><hr>
+<ul>
+<li>processing.org 에서 다운로드 (<a href="https://processing.org/download/" target="_blank" rel="noopener">다운로드 페이지</a>)</li>
+<li>arduino sketch는 C++기반이고, processing sketch는 java기반입니다.</li>
+</ul>
+<h4 id="processing-sketch-예제"><a href="#processing-sketch-예제" class="headerlink" title="processing sketch 예제"></a>processing sketch 예제</h4><p>1) 예제1 : 프로세싱 윈도우 크기, 배경색, 점, 선, 사각형, 원, 텍스트, 폰트, 사진 입력</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  size(<span class="number">400</span>,<span class="number">400</span>);</span><br><span class="line">  background(<span class="number">100</span>);        <span class="comment">// background(0,255,0);</span></span><br><span class="line">  strokeWeight(<span class="number">10</span>);       <span class="comment">// dot/line width</span></span><br><span class="line">  stroke(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>,<span class="number">100</span>);    <span class="comment">// dot/line color and transparency, noStroke();</span></span><br><span class="line">  point(<span class="number">200</span>,<span class="number">200</span>);         <span class="comment">// draw dot</span></span><br><span class="line">  line(<span class="number">0</span>,<span class="number">0</span>,<span class="number">200</span>,<span class="number">150</span>);      <span class="comment">// draw line</span></span><br><span class="line">  ellipse(<span class="number">300</span>,<span class="number">300</span>,<span class="number">50</span>,<span class="number">80</span>); <span class="comment">// draw circle(x,y,xr,yr)</span></span><br><span class="line">  fill(<span class="number">0</span>);                <span class="comment">// rect/text color, nofill();</span></span><br><span class="line">  rect(<span class="number">100</span>,<span class="number">250</span>,<span class="number">150</span>,<span class="number">300</span>);  <span class="comment">// draw rectangle(x1,y1,x2,y2)</span></span><br><span class="line">  </span><br><span class="line">  textSize(<span class="number">20</span>);</span><br><span class="line">  PFont font = createFont(<span class="string">"NanumGothic"</span>, <span class="number">32</span>);</span><br><span class="line">  textFont(font);</span><br><span class="line">  text(<span class="string">"Hello World!"</span>,<span class="number">200</span>,<span class="number">100</span>); <span class="comment">// text(string,x1,y2)</span></span><br><span class="line"></span><br><span class="line">  PImage img = loadImage(<span class="string">"sks.jpg"</span>);  <span class="comment">// file in '/sketch_XXXXXXa/data/' folder</span></span><br><span class="line">  image(img,<span class="number">20</span>,<span class="number">50</span>);       <span class="comment">// image(img,x,y,width,height);</span></span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2) 예제2 : 마우스와 키보드 이벤트</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  size(<span class="number">400</span>,<span class="number">400</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mousePressed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(mouseButton == LEFT) &#123;</span><br><span class="line">    println(<span class="string">"left button Pressed!"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(mouseButton == RIGHT) &#123;</span><br><span class="line">    println(<span class="string">"right button Pressed!"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(mouseButton == CENTER) &#123;</span><br><span class="line">    println(<span class="string">"center button Pressed!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">keyPressed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  println(<span class="string">"key Pressed!"</span>);   <span class="comment">// Key event</span></span><br><span class="line">  println(key);              <span class="comment">// Key String</span></span><br><span class="line">  println(keyCode);          <span class="comment">// ASCII Code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mouseReleased</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  println(<span class="string">"button Released!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">keyReleased</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  println(<span class="string">"key Released!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mouseClicked</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  println(<span class="string">"button Clicked!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mouseMoved</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  println(<span class="string">"mouse Moved!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mouseDragged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  println(<span class="string">"mouse Dragged!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mouseWheel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  println(<span class="string">"mouse Wheel!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3) 예제3 : 마우스 움직이는 대로 원 그리기</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  size(<span class="number">400</span>,<span class="number">400</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mouseMoved</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ellipse(mouseX,mouseY,<span class="number">50</span>,<span class="number">50</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4) 예제4 : 자유선 그리기</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  size(<span class="number">400</span>,<span class="number">400</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mouseMoved</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  line(pmouseX,pmouseY,mouseX,mouseY);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Arduino와-Processing을-통해-arduino-보드의-기본-led-blink-하기"><a href="#Arduino와-Processing을-통해-arduino-보드의-기본-led-blink-하기" class="headerlink" title="Arduino와 Processing을 통해 arduino 보드의 기본 led blink 하기"></a>Arduino와 Processing을 통해 arduino 보드의 기본 led blink 하기</h3><hr>
+<h4 id="회로도"><a href="#회로도" class="headerlink" title="회로도"></a>회로도</h4><p>아두이노의 기본 LED를 사용할 것이므로 별도의 회로 연결없이 아두이노만 연결한다.</p>
+<h4 id="library-등록"><a href="#library-등록" class="headerlink" title="library 등록"></a>library 등록</h4><p>1) 아두이노 사이트에서 프로세싱 라이브러리를 다운받은 후</p>
+<p>2) 압축을 풀었을 때 나오는 arduino폴더를 c:\Users\userID\processing\libraries 폴더에 복사한다.</p>
+<p>3) 프로세싱 프로그램에서 <code>스케치</code> → <code>내부라이브러리</code> → <code>Arduino (firmata)</code>를 선택하면,</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cc.arduino.*;</span><br><span class="line"><span class="keyword">import</span> org.firmata.*;</span><br><span class="line"><span class="keyword">import</span> processing.serial.*;</span><br></pre></td></tr></table></figure>
+<p>가 등록된다.</p>
+<h4 id="processing-sketch"><a href="#processing-sketch" class="headerlink" title="processing sketch"></a>processing sketch</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cc.arduino.*;</span><br><span class="line"><span class="keyword">import</span> org.firmata.*;</span><br><span class="line"><span class="keyword">import</span> processing.serial.*;</span><br><span class="line"></span><br><span class="line">Arduino arduino;</span><br><span class="line"><span class="keyword">int</span> ledPin = <span class="number">13</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  size(<span class="number">400</span>,<span class="number">400</span>);</span><br><span class="line">  println(Arduino.list());</span><br><span class="line">  arduino = <span class="keyword">new</span> Arduino(<span class="keyword">this</span>, Arduino.list()[<span class="number">0</span>], <span class="number">57600</span>); <span class="comment">// Arduino.list()[0] or "COM3"</span></span><br><span class="line">  arduino.pinMode(ledPin, Arduino.OUTPUT);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  arduino.digitalWrite(ledPin, Arduino.HIGH);</span><br><span class="line">  delay(<span class="number">1000</span>);</span><br><span class="line">  arduino.digitalWrite(ledPin, Arduino.LOW);</span><br><span class="line">  delay(<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="arduino-sketch"><a href="#arduino-sketch" class="headerlink" title="arduino sketch"></a>arduino sketch</h4><p>1) arduino IDE에서 <code>파일</code> → <code>예제</code> → <code>firmata</code> → <code>standard firmata</code>를 불러들인 후</p>
+<p>2) 컴파일하고 업로드한다.</p>
+<h4 id="processing에서-실행하기"><a href="#processing에서-실행하기" class="headerlink" title="processing에서 실행하기"></a>processing에서 실행하기</h4><p>1) processing에서 실행버튼을 눌러 실행해보기</p>
+<p>2) <code>파일</code> → <code>어플리케이션으로 내보내기</code>를 선택하여 윈도우, Mac, Linux용 실행파일을 만들어보기</p>
+<p>※ 어플리케이션으로 내보내기를 하기전에 processing sketch를 저장하여야 한다.</p>
+<h3 id="Processing으로-led-제어하기"><a href="#Processing으로-led-제어하기" class="headerlink" title="Processing으로 led 제어하기"></a>Processing으로 led 제어하기</h3><hr>
+<h4 id="processing-sketch-사각형-스위치"><a href="#processing-sketch-사각형-스위치" class="headerlink" title="processing sketch : 사각형 스위치"></a>processing sketch : 사각형 스위치</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cc.arduino.*;</span><br><span class="line"><span class="keyword">import</span> org.firmata.*;</span><br><span class="line"><span class="keyword">import</span> processing.serial.*;</span><br><span class="line"></span><br><span class="line">Arduino arduino;</span><br><span class="line"><span class="keyword">int</span> ledPin = <span class="number">13</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  size(<span class="number">400</span>,<span class="number">400</span>);</span><br><span class="line">  background(<span class="number">0</span>);</span><br><span class="line">  fill(<span class="number">255</span>);</span><br><span class="line">  noStroke();</span><br><span class="line">  rect(width/<span class="number">2</span>, <span class="number">0</span>, width/<span class="number">2</span>, height);</span><br><span class="line">  text(<span class="string">"LED OFF"</span>, <span class="number">30</span>, <span class="number">30</span>);</span><br><span class="line">  fill(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  text(<span class="string">"LED ON"</span>, <span class="number">230</span>, <span class="number">30</span>);</span><br><span class="line">  </span><br><span class="line">  println(Arduino.list());</span><br><span class="line">  arduino = <span class="keyword">new</span> Arduino(<span class="keyword">this</span>, Arduino.list()[<span class="number">0</span>], <span class="number">57600</span>);</span><br><span class="line">  arduino.pinMode(ledPin, Arduino.OUTPUT);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mouseMoved</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(mouseX &lt; width/<span class="number">2</span>) &#123;</span><br><span class="line">    arduino.digitalWrite(ledPin, Arduino.LOW);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    arduino.digitalWrite(ledPin, Arduino.HIGH);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="processing-sketch-그라데이션-가변저항"><a href="#processing-sketch-그라데이션-가변저항" class="headerlink" title="processing sketch : 그라데이션 가변저항"></a>processing sketch : 그라데이션 가변저항</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cc.arduino.*;</span><br><span class="line"><span class="keyword">import</span> org.firmata.*;</span><br><span class="line"><span class="keyword">import</span> processing.serial.*;</span><br><span class="line"></span><br><span class="line">Arduino arduino;</span><br><span class="line"><span class="keyword">int</span> ledPin = <span class="number">13</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  size(<span class="number">400</span>,<span class="number">400</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;width; i++) &#123;</span><br><span class="line">    stroke(map(i, <span class="number">0</span>, width-<span class="number">1</span>, <span class="number">0</span>, <span class="number">255</span>)); <span class="comment">// 색깔을 점차 변화시키면서</span></span><br><span class="line">    line(i, <span class="number">0</span>, i, height);              <span class="comment">// 선을 그려, 그라데이션 효과를 만들어 냄</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  println(Arduino.list());</span><br><span class="line">  arduino = <span class="keyword">new</span> Arduino(<span class="keyword">this</span>, Arduino.list()[<span class="number">0</span>], <span class="number">57600</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mouseMoved</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  arduino.analogWrite(ledPin, <span class="keyword">int</span>(map(mouseX, <span class="number">0</span>, width-<span class="number">1</span>, <span class="number">0</span>, <span class="number">255</span>)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>#### </p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://chemidot.github.io/2017/11/30/2017-11-30-프로세싱-기초/" data-id="cjv23k7en00211kb9lt3g5ppt" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "chemidot"
+        },
+        "headline": "프로세싱 기초",
+        "image": "http://chemidot.github.io",
+        "keywords": "Arduino",
+        "genre": "렛츠아두이노",
+        "datePublished": "2017-11-30",
+        "dateCreated": "2017-11-30",
+        "dateModified": "2017-11-29",
+        "url": "http://chemidot.github.io/2017/11/30/2017-11-30-프로세싱-기초/",
+        "description": "Processing
+
+processing.org 에서 다운로드 (다운로드 페이지)
+arduino sketch는 C++기반이고, processing sketch는 java기반입니다.
+
+processing sketch 예제1) 예제1 : 프로세싱 윈도우 크기, 배경색, 점, 선, 사각형, 원, 텍스트, 폰트, 사진 입력
+1234567891011121314151"
+        "wordCount": 1300
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/11/30/2017-11-30-DC모터-사용하여-4WD-RC카-만들기/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            DC모터 사용하여 4WD RC카 만들기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/11/27/2017-11-27-온습도센서-DHT11/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">온습도센서 DHT11 사용하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/irAO9rT.jpg)" alt="Bluetooth 4WD" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="title">Bluetooth 4WD</a></p>
+                            <p class="item-date"><time datetime="2018-10-11T09:27:53.000Z" itemprop="datePublished">2018-10-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://imgur.com/B1dxP00.jpg)" alt="Bluetooth 4WD Controller" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="title">Bluetooth 4WD Controller</a></p>
+                            <p class="item-date"><time datetime="2018-10-10T09:27:53.000Z" itemprop="datePublished">2018-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/Lbo12LG.jpg)" alt="Bluetooth 페어링" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="title">Bluetooth 페어링</a></p>
+                            <p class="item-date"><time datetime="2018-10-09T09:27:53.000Z" itemprop="datePublished">2018-10-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/31/2018-01-31-연수기-DIY/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/4dgI0uA.png)" alt="연수기 DIY" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/알쓸신잡/">알쓸신잡</a></p>
+                            <p class="item-title"><a href="/2018/01/31/2018-01-31-연수기-DIY/" class="title">연수기 DIY</a></p>
+                            <p class="item-date"><time datetime="2018-01-31T09:27:53.000Z" itemprop="datePublished">2018-01-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/미니노트/">미니노트</a></p>
+                            <p class="item-title"><a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="title">캘리그래피 노트 2017-2학기</a></p>
+                            <p class="item-date"><time datetime="2017-12-10T09:27:53.000Z" itemprop="datePublished">2017-12-10</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/과학/">과학</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/놀이터/">놀이터</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미니노트/">미니노트</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/알쓸신잡/">알쓸신잡</a><span class="category-list-count">18</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10월 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">1월 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">10월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">4월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">12월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">11월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">12월 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">10월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">7월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">3월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">7월 2009</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/">DIY</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LG070/">LG070</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/beijing/">beijing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/billboard/">billboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/china/">china</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hongkong/">hongkong</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kisb/">kisb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shanghai/">shanghai</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sks/">sks</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/생활/">생활</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/스마트폰/">스마트폰</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/재외국민/">재외국민</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/전기요금/">전기요금</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/캘리그래피/">캘리그래피</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/화학/">화학</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Arduino/" style="font-size: 20px;">Arduino</a> <a href="/tags/DIY/" style="font-size: 13.33px;">DIY</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/LG070/" style="font-size: 10px;">LG070</a> <a href="/tags/beijing/" style="font-size: 13.33px;">beijing</a> <a href="/tags/billboard/" style="font-size: 10px;">billboard</a> <a href="/tags/china/" style="font-size: 20px;">china</a> <a href="/tags/hongkong/" style="font-size: 10px;">hongkong</a> <a href="/tags/kisb/" style="font-size: 13.33px;">kisb</a> <a href="/tags/shanghai/" style="font-size: 10px;">shanghai</a> <a href="/tags/sks/" style="font-size: 13.33px;">sks</a> <a href="/tags/생활/" style="font-size: 13.33px;">생활</a> <a href="/tags/스마트폰/" style="font-size: 16.67px;">스마트폰</a> <a href="/tags/재외국민/" style="font-size: 10px;">재외국민</a> <a href="/tags/전기요금/" style="font-size: 13.33px;">전기요금</a> <a href="/tags/캘리그래피/" style="font-size: 13.33px;">캘리그래피</a> <a href="/tags/화학/" style="font-size: 10px;">화학</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 chemidot</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://chemidot.github.io/2017/11/30/2017-11-30-프로세싱-기초/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>Hexo on Windows 10 | de la Cruz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Hexo">
+    
+    <meta name="description" content="Hexo github 서버를 이용하는 마크다운 블로그 프레임입니다. 지금 사용하는 블로그도 hexo를 사용하여 만들어져 있는데요. 티스토리, 워드프레스를 거쳐서 hexo로 정착하였습니다. 티스토리는 수년간 사용할 정도로 큰 문제는 없었어요. 그런데, 무슨 이유에서인지 자체 백업기능을 삭제해버려서 살짝 걱정이 되더라고요. 그래서 중간에 워드프레스로 이전을 했">
+<meta name="keywords" content="Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo on Windows 10">
+<meta property="og:url" content="http://chemidot.github.io/2017/09/30/2017-09-30-Hexo-on-Windows-10/index.html">
+<meta property="og:site_name" content="de la Cruz">
+<meta property="og:description" content="Hexo github 서버를 이용하는 마크다운 블로그 프레임입니다. 지금 사용하는 블로그도 hexo를 사용하여 만들어져 있는데요. 티스토리, 워드프레스를 거쳐서 hexo로 정착하였습니다. 티스토리는 수년간 사용할 정도로 큰 문제는 없었어요. 그런데, 무슨 이유에서인지 자체 백업기능을 삭제해버려서 살짝 걱정이 되더라고요. 그래서 중간에 워드프레스로 이전을 했">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2017-11-25T13:52:40.734Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo on Windows 10">
+<meta name="twitter:description" content="Hexo github 서버를 이용하는 마크다운 블로그 프레임입니다. 지금 사용하는 블로그도 hexo를 사용하여 만들어져 있는데요. 티스토리, 워드프레스를 거쳐서 hexo로 정착하였습니다. 티스토리는 수년간 사용할 정도로 큰 문제는 없었어요. 그런데, 무슨 이유에서인지 자체 백업기능을 삭제해버려서 살짝 걱정이 되더라고요. 그래서 중간에 워드프레스로 이전을 했">
+    
+
+    
+        <link rel="alternate" href="/" title="de la Cruz" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">a la fecha</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/과학/">과학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/놀이터/">놀이터</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/미니노트/">미니노트</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알쓸신잡/">알쓸신잡</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/알쓸신잡/">알쓸신잡</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2017-09-30-Hexo-on-Windows-10" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Hexo on Windows 10
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/09/30/2017-09-30-Hexo-on-Windows-10/" class="article-date">
+            <time datetime="2017-09-30T11:58:58.000Z" itemprop="datePublished">2017-09-30</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Hexo/">Hexo</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><hr>
+<p>github 서버를 이용하는 마크다운 블로그 프레임입니다. 지금 사용하는 블로그도 hexo를 사용하여 만들어져 있는데요. 티스토리, 워드프레스를 거쳐서 hexo로 정착하였습니다. 티스토리는 수년간 사용할 정도로 큰 문제는 없었어요. 그런데, 무슨 이유에서인지 <strong>자체 백업기능을 삭제</strong>해버려서 살짝 걱정이 되더라고요. 그래서 중간에 워드프레스로 이전을 했었습니다. 그런데, 워드프레스 자체는 매우 훌륭한 서비스이지만, 별도의 이용요금 지불없이 무료서비스를 이용하다보니 중국내 접속속도가 느리고, 테마나 폰트 수정에 있어 자유도가 떨어지더군요. 글자크기를 마음대로 조절할 수 없어서 가독성이 떨어지는 것이 가장 큰 문제였습니다. 이후로 마크다운을 지원하면서 워드프레스 마이그레이션을 동시에 지원하는 서비스를 찾아보기 시작했고, 다행히도 hexo에서 wordpress-to-hexo migration 툴을 제공하여 (비록 시간은 많이 들었지만) 큰 어려움없이 이전을 진행하였습니다.</p>
+<h3 id="Hexo-installing-on-Windows-10"><a href="#Hexo-installing-on-Windows-10" class="headerlink" title="Hexo installing on Windows 10"></a>Hexo installing on Windows 10</h3><hr>
+<p>hexo는 티스토리나 워드프레스처럼 가입만하면 이용할 수 있는 서비스는 아닙니다. 약간의 수고로움이 필요한 설치과정을 거쳐야 하는데요. 그렇지만 엄청 어려운것도 아니에요. <a href="https://hexo.io" target="_blank" rel="noopener">hexo 공식사이트</a>에 있는 메뉴얼 차근차근 읽어보면 그리 어렵지는 않습니다. 저의 경우 hexo로 마이그레이션하기로 결정하기 이전에 이와 유사한 jekyll을 설치해보았는데요. 둘다 사용해본 입장에서 hexo는 jekyll보다도 훨씬 간단합니다.</p>
+<p>그럼에도 설치과정을 다시 정리하는 이유는, hexo 사이트에 나와있는대로 차근차근 진행해도 에러나 경고와 같은 사소한 문제들이 과정과정마다 발생했기 때문입니다. 초보자 입장에서 이런 문제를 해결하는 방법들이 나와있는 곳을 찾기가 쉽지는 않더라고요. 그래서, 제가 <strong>윈도우10에 설치</strong>하는 과정에서 생긴 문제들을 정리하고 보완하여, 최대한 문제가 생기지 않도록, 그리고 누구나 설치하여 운용할 수 있도록 순서대로 정리를 해보려고 합니다.</p>
+<h4 id="설치과정"><a href="#설치과정" class="headerlink" title="설치과정"></a>설치과정</h4><hr>
+<p>1.<strong><a href="https://github.com" target="_blank" rel="noopener">github</a> 가입</strong></p>
+<p>2.<strong>reposotory 생성</strong> : 2개의 repository를 생성하며, 이때 repositiry의 이름은 아래와 같이 설정합니다. </p>
+<p>​    1) 블로그용 repository : example.github.io</p>
+<p>​    2) 블로그 설정파일 저장용 : hexo-archives</p>
+<p>3.<strong>git와 node.js 설치</strong> : 사용하는 OS에 따라 적절한 파일을 다운로드 받아 설치하며, 아래는 windows용 파일 링크입니다.</p>
+<p>​    1) git : <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git 다운로드 경로 클릭</a></p>
+<p>​    2) node.js : <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org 다운로드 경로 클릭</a></p>
+<p>4.<strong>hexo 설치</strong></p>
+<p>​    1) 윈도우 작업표시줄에 있는 돋보기 모양의 윈도우 검색 버튼을 누르고 ‘git bash’를 입력하여 터미널 실행</p>
+<p>​    2) 터미널 창이 뜨면 아래의 명령을 입력하여 hexo 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>​    3) 이 과정에서 표시되는 경고문은 무시해도 관계없습니다. (해당 이슈에 대하여 npm 다운그레이드를 하면 해결된다는 방법이 우세하고, 그밖에도 다양한 해결책을 찾아볼 수 있네요) </p>
+<p>5.<strong>hexo 블로그 루트 폴더 생성, 초기화 및 플러그인 설치</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> c:\</span><br><span class="line">mkdir hexo-blog</span><br><span class="line">hexo init hexo-blog             <span class="comment"># hexo 디렉토리를 스케폴딩함</span></span><br><span class="line"><span class="built_in">cd</span> hexo-blog</span><br><span class="line">npm install</span><br><span class="line">npm install hexo-server --save             <span class="comment"># 이 라인부터는 hexo.io 설치방법에 나와있지 않음</span></span><br><span class="line">git config --global user.name <span class="string">"githubID"</span>   <span class="comment"># deploy시 *** Please tell me who you are. 에러 방지</span></span><br><span class="line">git config --global user.email <span class="string">"이메일주소"</span> <span class="comment"># </span></span><br><span class="line">npm install hexo-deployer-git --save       <span class="comment"># ERROR Deployer not found: git 에러 방지 플러그인</span></span><br></pre></td></tr></table></figure>
+<p>그리고, _config_yml 파일을 수정하여 플러그인 설정해줍니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins: hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p>6.<strong>로컬에서 페이지 확인</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo serve                      <span class="comment"># 접속포트를 5000번으로 바꾸려면 hexo serve -p 5000</span></span><br><span class="line">http://localhost:4000/</span><br></pre></td></tr></table></figure>
+<h4 id="테마적용-hexo-theme-hueman"><a href="#테마적용-hexo-theme-hueman" class="headerlink" title="테마적용 : hexo-theme-hueman"></a>테마적용 : hexo-theme-hueman</h4><p>1.블로그 루트 폴더(c:\hexo-blog)에서 테마 다운로드 (c:\hexo-blog\themes 에 hueman폴더 생성)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</span><br></pre></td></tr></table></figure>
+<p>2.환경설정 파일 수정 (c:\hexo-blog\config.yml)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">title:                            <span class="comment"># 브라우저 탭에 출력되는 제목</span></span><br><span class="line">subtitle:                         <span class="comment"># hueman 테마에서는 로고 옆에 출력됨</span></span><br><span class="line">description:</span><br><span class="line">author:</span><br><span class="line">language: ko <span class="comment"># 기본 언어 설정, 다국어 지원</span></span><br><span class="line">timezone: Asia/Seoul              <span class="comment"># https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</span></span><br><span class="line">url: http://githubID.github.io/   <span class="comment"># repository를 블로그 주소로 설정하여야 함</span></span><br><span class="line">root: /                           <span class="comment"># 기본은 /, 서브디렉토리 구조를 갖는 경우, 루트폴더 지정</span></span><br><span class="line">permalink: :year/:month/:day/:title/    <span class="comment"># 기본 permalink (고정 url). 새글 생성 시 자동으로 지정된 형식의 url이 할당됨</span></span><br><span class="line">permalink_defaults:</span><br><span class="line">deploy:</span><br><span class="line"><span class="built_in">type</span>: git</span><br><span class="line">  - repo: https://github.com/githubID.github.io.git    <span class="comment"># https://github.com/기본repository.git</span></span><br><span class="line">  - theme: hueman</span><br></pre></td></tr></table></figure>
+<p>3.테마 환경설정 파일 생성</p>
+<p>   테마 폴더 안에 있는 _config.yml.example의 이름을 _config.yml로 수정 (<strong>※블로그의 _config.yml 가 아님!</strong>)</p>
+<p>4.테마에서 적용하는 검색기능 활용을 위해 hexo-generator-json-content 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure>
+<h4 id="테마-커스터마이징-themes-hueman-content-yml-수정"><a href="#테마-커스터마이징-themes-hueman-content-yml-수정" class="headerlink" title="테마 커스터마이징 : themes/hueman/_content.yml 수정"></a>테마 커스터마이징 : themes/hueman/_content.yml 수정</h4><hr>
+<p>1.메뉴 (선택사항) : 글을 포스팅할때 front-matter(포스트 첫머리의 제목, 생성일자 등이 들어가는 부분)에 카테고리를 추가하면 자동으로 추가되므로, 추가/수정을 하지 않아도 됨</p>
+<ul>
+<li><p>단, 필요한 것을 추가하거나 수정하려면,</p>
+<p>menu:<br>  Home: /hexo-theme-hueman/<br>  About: /hexo-theme-hueman/about/index.html   # 상대경로</p>
+<p>  Github: <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a>                # 절대경로</p>
+</li>
+</ul>
+<p>2.About.me</p>
+<ul>
+<li>/about/index.html 생성해야 함</li>
+<li>혹은 about.me 사이트를 이용해서 프로필을 만들고 해당 url을 추가해도 됨</li>
+</ul>
+<p>3.로고</p>
+<ul>
+<li>public 밑에 있는 img 폴더는 root폴더명/img라는 이름으로 접근 </li>
+<li>혹은 웹의 이미지url도 가능</li>
+</ul>
+<p>4.테마색깔</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme_color: <span class="string">'#d35'</span></span><br></pre></td></tr></table></figure>
+<p>5) syntax highlighter</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">highlight: androidstudio            <span class="comment"># hueman/source/css/_highlight 폴더에 있는 것들 중 선택</span></span><br></pre></td></tr></table></figure>
+<p>6.사이드바 위치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sidebar: left</span><br></pre></td></tr></table></figure>
+<p>7.썸네일 : 포스트의 썸네일 기능</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">thumbnail: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>썸네일 사용시 포스트 작성시 앞쪽에 자동삽입되는 front-matter 부분에 경로 추가</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: Hello World</span><br><span class="line">date: 2013/7/13 20:46:25</span><br><span class="line">thumbnail: http://example.com/image.jpg</span><br></pre></td></tr></table></figure>
+<p>8.favicon : url 앞에 붙는 작은 아이콘으로 png파일</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">favicon: favicon.png</span><br></pre></td></tr></table></figure>
+<ul>
+<li>바뀌지 않는 경우에는 브라우저 파비콘 파일 폴더의 파일을 삭제<br>\AppData\Local\Google\Chrome\User Data\Default</li>
+</ul>
+<p>9.소셜링크</p>
+<p>10.위젯 : 사이드바에 추가할 위젯 설정</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">widgets:</span><br><span class="line">	recent_post</span><br><span class="line">	category</span><br><span class="line">	archive</span><br><span class="line">	tag</span><br><span class="line">	tagcloud</span><br><span class="line">	links</span><br></pre></td></tr></table></figure>
+<p>11.링크 : 위젯에서 추가한 링크 사용시에 url추가</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">links:</span><br><span class="line">	Hexo: http://hexo.io</span><br><span class="line">	Naver blog: http://blog.naver.com/future_creator</span><br></pre></td></tr></table></figure>
+<p>12.검색 : 블로그내의 검색기능으로 기본제공되는 InsightSearch 사용</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">	insight: <span class="literal">true</span></span><br><span class="line">	swifttype:</span><br><span class="line">	baidu: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>13.댓글 : 기본적으로 Disqus 제공. Disqus 가입 후 아이디 확인하고 _config.yml에 입력</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">comment:</span><br><span class="line">	disqus: disqusID          <span class="comment"># disqus 아이디</span></span><br><span class="line">	duoshuo:</span><br><span class="line">	youyan:</span><br></pre></td></tr></table></figure>
+<p>14.공유 : 포스트 공유 기능으로 스타일을 선택</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">share: default <span class="comment"># option: default, addtoany, jiathis(china), bdshare(china)</span></span><br></pre></td></tr></table></figure>
+<p>15.플러그인</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ScrollLoading :               <span class="comment"># 한번에 모든 페이지를 로딩하지 않고, 스크롤에 따라 로딩</span></span><br><span class="line">Fancybox :                    <span class="comment"># 맥 스타일로 이미지를 보여주는 플러그인</span></span><br><span class="line">Open Graph :                  <span class="comment"># 페이스북의 앱 아이디나 admin번호, 트위터와 구글플러스 아이디 입력</span></span><br><span class="line">Google Analytics :            <span class="comment"># Google Analytics 아이디(Tracking ID)를 입력</span></span><br></pre></td></tr></table></figure>
+<p>16.폰트</p>
+<ul>
+<li>본문 폰트 크기 변경 : _variables.css 파일 수정</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font-size-article = 18px      <span class="comment"># 16px 정도가 적당</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>본문 제목 크기 변경 : /_partial/article.styl 파일 수정</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.article-title</span><br><span class="line">  text-decoration: none</span><br><span class="line">  font-size: 32px             <span class="comment"># 28px 정도가 적당</span></span><br></pre></td></tr></table></figure>
+<h3 id="포스팅"><a href="#포스팅" class="headerlink" title="포스팅"></a>포스팅</h3><hr>
+<h4 id="새로운-글-포스팅하기"><a href="#새로운-글-포스팅하기" class="headerlink" title="새로운 글 포스팅하기"></a>새로운 글 포스팅하기</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>혹은 typora와 같은 마크다운 편집기를 사용하여 md확장자를 가진 파일을 만들어 _posts 폴더에 업로드합니다.</p>
+<h4 id="로컬작업-내용을-github-도메인으로-배포-push"><a href="#로컬작업-내용을-github-도메인으로-배포-push" class="headerlink" title="로컬작업 내용을 github 도메인으로 배포(push)"></a>로컬작업 내용을 github 도메인으로 배포(push)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo deploy                    <span class="comment"># 한줄로 쓸 경우, hexo g -d</span></span><br></pre></td></tr></table></figure>
+<p>이때, deploy후에도 페이지 업데이트가 안된다면, 페이지 clean 후 재배포합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo deploy --generate</span><br></pre></td></tr></table></figure>
+<h4 id="배포시-발생하는-에러"><a href="#배포시-발생하는-에러" class="headerlink" title="배포시 발생하는 에러"></a>배포시 발생하는 에러</h4><p>1.TypeError: Cannot read property ‘exports’ of undefined :  code highlight가 안되는 언어를 쓴 경우 에러 발생</p>
+<p>   <strong>해결방법</strong> : 테마에서 지원 가능한 code highlight를 사용 (예를들어, code block 작성시 사용언어로 arduino를 지정하면 위 에러가 발생하므로, arduino 대신 cpp나 그밖의 지원가능한 언어를 지정하여야 합니다.)</p>
+<h4 id="워드프레스-마이그레이션"><a href="#워드프레스-마이그레이션" class="headerlink" title="워드프레스 마이그레이션"></a>워드프레스 마이그레이션</h4><p>1.마이그레이션 툴을 설치합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-migrator-wordpress --save</span><br></pre></td></tr></table></figure>
+<p>2.워드프레스 대시보드에서 백업파일(.xml)을 다운 받습니다.</p>
+<p>   “Tools” → “Export” → “WordPress”</p>
+<p>3.백업파일을 _posts폴더에 복사한 후, 마이그레이션을 진행합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo migrate wordpress wordpress_backup.xml</span><br></pre></td></tr></table></figure>
+<p>4.Trouble Shooting</p>
+<p>1) 에러1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something<span class="string">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 2, column 5:</span></span><br><span class="line"><span class="string">(중략)</span></span><br><span class="line"><span class="string">INFO  Post found: Error : l103.exe ; Error in internal coordinates</span></span><br><span class="line"><span class="string">C:\hexo\node_modules\to-markdown\src\to-markdown.js:71</span></span><br><span class="line"><span class="string">    return '</span>![<span class="string">' + (alt &amp;&amp; alt[1] ? alt[1] : '</span><span class="string">') + '</span>]<span class="string">' + '</span>(<span class="string">' + src[1] + (title &amp;&amp; title[1] ? '</span> <span class="string">"' + title[1] + '"</span><span class="string">' : '</span><span class="string">') + '</span>)<span class="string">';</span></span><br><span class="line"><span class="string">TypeError: Cannot read property '</span>1<span class="string">' of null</span></span><br><span class="line"><span class="string">(하략)</span></span><br></pre></td></tr></table></figure>
+<p>​    <strong>해결방법</strong> : \node_modules\hexo-migrator-wordpress\node_modules\to-markdown\src\to-markdown.js 파일을 아래와 같이 수정합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// hexo: line 70</span><br><span class="line">&#123;</span><br><span class="line"> patterns: <span class="string">'img'</span>,</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">'void'</span>,</span><br><span class="line">  replacement: <span class="keyword">function</span>(str, attrs, innerHTML) &#123;</span><br><span class="line">    var src = attrs.match(attrRegExp(<span class="string">'src'</span>)),</span><br><span class="line">        alt = attrs.match(attrRegExp(<span class="string">'alt'</span>)),</span><br><span class="line">        title = attrs.match(attrRegExp(<span class="string">'title'</span>));</span><br><span class="line">        // after line 70. hot-fix: add this <span class="keyword">if</span>-statement</span><br><span class="line">        <span class="keyword">if</span> (src == null)&#123;</span><br><span class="line">            src = <span class="string">"img_src_error"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">return</span> <span class="string">'!['</span> + (alt &amp;&amp; alt[1] ? alt[1] : <span class="string">''</span>) + <span class="string">']'</span> + <span class="string">'('</span> + src[1] + (title &amp;&amp; title[1] ? <span class="string">' "'</span> + title[1] + <span class="string">'"'</span> : <span class="string">''</span>) + <span class="string">')'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2) 에러2 : Problem importing posts with long titles</p>
+<p>​    <strong>해결방법</strong> : index.js를 <a href="https://github.com/dengshilong/hexo-migrator-wordpress/blob/master/index.js로" target="_blank" rel="noopener">https://github.com/dengshilong/hexo-migrator-wordpress/blob/master/index.js로</a> 교체</p>
+<h4 id="arduino-syntax-highlighter-적용하기"><a href="#arduino-syntax-highlighter-적용하기" class="headerlink" title="arduino syntax highlighter 적용하기"></a>arduino syntax highlighter 적용하기</h4><p>1) language 표기시에 <code>arduino</code>를 사용하면 generate하는 동안 export 에러가 발생함</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Unhandled rejection TypeError: Cannot <span class="built_in">read</span> property <span class="string">'exports'</span> of undefined</span><br><span class="line">    at module.exports (\node_modules\highlight.js\lib\languages\arduino.js:2:36)</span><br></pre></td></tr></table></figure>
+<p>2) /node_modules/highlight.js/lib/languages/arduino.js 파일을 다음의 내용으로 교체</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Language: Arduino</span></span><br><span class="line"><span class="comment">Author: Stefania Mellai &lt;s.mellai@arduino.cc&gt;</span></span><br><span class="line"><span class="comment">Description: The Arduino® Language is a superset of C++. This rules are designed to highlight the Arduino® source code. For info about language see http://www.arduino.cc.</span></span><br><span class="line"><span class="comment">Category: misc</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">hljs</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// CPP Strings</span></span><br><span class="line">	<span class="keyword">var</span> STRINGS = &#123;</span><br><span class="line">	    className: <span class="string">'string'</span>,</span><br><span class="line">	    variants: [</span><br><span class="line">	      hljs.inherit(hljs.QUOTE_STRING_MODE, &#123; <span class="attr">begin</span>: <span class="string">'((u8?|U)|L)?"'</span> &#125;),</span><br><span class="line">	      &#123;</span><br><span class="line">	        begin: <span class="string">'(u8?|U)?R"'</span>, <span class="attr">end</span>: <span class="string">'"'</span>,</span><br><span class="line">	        contains: [hljs.BACKSLASH_ESCAPE]</span><br><span class="line">	      &#125;,</span><br><span class="line">	      &#123;</span><br><span class="line">	        begin: <span class="string">'\'\\\\?.'</span>, <span class="attr">end</span>: <span class="string">'\''</span>,</span><br><span class="line">	        illegal: <span class="string">'.'</span></span><br><span class="line">	      &#125;</span><br><span class="line">	    ]</span><br><span class="line">	  &#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// CPP preprocessor</span></span><br><span class="line">	<span class="keyword">var</span> PREPROCESSOR =       &#123;</span><br><span class="line">	    className: <span class="string">'meta'</span>,</span><br><span class="line">	    begin: <span class="string">'#'</span>, <span class="attr">end</span>: <span class="string">'$'</span>,</span><br><span class="line">	    keywords: &#123;<span class="string">'meta-keyword'</span>: <span class="string">'if else elif endif define undef warning error line '</span> +</span><br><span class="line">	                  <span class="string">'pragma ifdef ifndef'</span>&#125;,</span><br><span class="line">	    contains: [</span><br><span class="line">	      &#123;</span><br><span class="line">	        begin: <span class="regexp">/\\\n/</span>, <span class="attr">relevance</span>: <span class="number">0</span></span><br><span class="line">	      &#125;,</span><br><span class="line">	      &#123;</span><br><span class="line">	        beginKeywords: <span class="string">'include'</span>, <span class="attr">end</span>: <span class="string">'$'</span>,</span><br><span class="line">	        keywords: &#123;<span class="string">'meta-keyword'</span>: <span class="string">'include'</span>&#125;,</span><br><span class="line">	        contains: [</span><br><span class="line">	          hljs.inherit(STRINGS, &#123;<span class="attr">className</span>: <span class="string">'meta-string'</span>&#125;),</span><br><span class="line">	          &#123;</span><br><span class="line">	            className: <span class="string">'meta-string'</span>,</span><br><span class="line">	            begin: <span class="string">'&lt;'</span>, <span class="attr">end</span>: <span class="string">'&gt;'</span>,</span><br><span class="line">	            illegal: <span class="string">'\\n'</span>,</span><br><span class="line">	          &#125;</span><br><span class="line">	        ]</span><br><span class="line">	      &#125;,</span><br><span class="line">	      STRINGS,</span><br><span class="line">	      hljs.C_LINE_COMMENT_MODE,</span><br><span class="line">	      hljs.C_BLOCK_COMMENT_MODE</span><br><span class="line">	    ]</span><br><span class="line">	  &#125;;</span><br><span class="line"></span><br><span class="line">  	<span class="keyword">return</span> &#123;</span><br><span class="line">	    keywords: &#123;</span><br><span class="line">	      <span class="function"><span class="keyword">function</span>: '<span class="title">setup</span> <span class="title">loop</span> <span class="title">while</span> <span class="title">catch</span> <span class="title">for</span> <span class="title">if</span> <span class="title">do</span> <span class="title">goto</span> <span class="title">try</span> <span class="title">switch</span> <span class="title">case</span> <span class="title">else</span> <span class="title">default</span> <span class="title">break</span> <span class="title">continue</span> <span class="title">return</span>',</span></span><br><span class="line"><span class="function">	      <span class="title">keyword</span>: '<span class="title">boolean</span> <span class="title">byte</span> <span class="title">word</span> <span class="title">string</span> <span class="title">String</span> <span class="title">array</span> ' +</span></span><br><span class="line"><span class="function">	      // <span class="title">CPP</span> <span class="title">keywords</span></span></span><br><span class="line"><span class="function">	      '<span class="title">int</span> <span class="title">float</span> <span class="title">private</span> <span class="title">char</span> <span class="title">export</span> <span class="title">virtual</span> <span class="title">operator</span> <span class="title">sizeof</span> <span class="title">uint8_t</span> <span class="title">uint16_t</span> ' +</span></span><br><span class="line"><span class="function">	      '<span class="title">uint32_t</span> <span class="title">uint64_t</span> <span class="title">int8_t</span> <span class="title">int16_t</span> <span class="title">int32_t</span> <span class="title">int64_t</span> ' +</span></span><br><span class="line"><span class="function">	      '<span class="title">dynamic_cast</span> <span class="title">typedef</span> <span class="title">const_cast</span> <span class="title">const</span> <span class="title">struct</span> <span class="title">static_cast</span> <span class="title">union</span> <span class="title">namespace</span> ' +</span></span><br><span class="line"><span class="function">	      '<span class="title">unsigned</span> <span class="title">long</span> <span class="title">volatile</span> <span class="title">static</span> <span class="title">protected</span> <span class="title">bool</span> <span class="title">template</span> <span class="title">mutable</span> <span class="title">public</span> <span class="title">friend</span> ' +</span></span><br><span class="line"><span class="function">	      '<span class="title">auto</span> <span class="title">void</span> <span class="title">enum</span> <span class="title">extern</span> <span class="title">using</span> <span class="title">class</span> <span class="title">asm</span> <span class="title">typeid</span> ' +</span></span><br><span class="line"><span class="function">	      '<span class="title">short</span> <span class="title">reinterpret_cast</span> <span class="title">double</span> <span class="title">register</span> <span class="title">explicit</span> <span class="title">signed</span> <span class="title">typename</span> <span class="title">this</span> ' +</span></span><br><span class="line"><span class="function">	      '<span class="title">inline</span> <span class="title">delete</span> <span class="title">alignof</span> <span class="title">constexpr</span> <span class="title">decltype</span> ' +</span></span><br><span class="line"><span class="function">	      '<span class="title">noexcept</span> <span class="title">static_assert</span> <span class="title">thread_local</span> <span class="title">restrict</span> _Bool <span class="title">complex</span> _Complex _Imaginary ' +</span></span><br><span class="line"><span class="function">	      '<span class="title">atomic_bool</span> <span class="title">atomic_char</span> <span class="title">atomic_schar</span> ' +</span></span><br><span class="line"><span class="function">	      '<span class="title">atomic_uchar</span> <span class="title">atomic_short</span> <span class="title">atomic_ushort</span> <span class="title">atomic_int</span> <span class="title">atomic_uint</span> <span class="title">atomic_long</span> <span class="title">atomic_ulong</span> <span class="title">atomic_llong</span> ' +</span></span><br><span class="line"><span class="function">	      '<span class="title">atomic_ullong</span>',</span></span><br><span class="line"><span class="function">	      <span class="title">built_in</span>: '<span class="title">KeyboardController</span> <span class="title">MouseController</span> <span class="title">SoftwareSerial</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">EthernetServer</span> <span class="title">EthernetClient</span> <span class="title">LiquidCrystal</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">RobotControl</span> <span class="title">GSMVoiceCall</span> <span class="title">EthernetUDP</span> <span class="title">EsploraTFT</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">HttpClient</span> <span class="title">RobotMotor</span> <span class="title">WiFiClient</span> <span class="title">GSMScanner</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">FileSystem</span> <span class="title">Scheduler</span> <span class="title">GSMServer</span> <span class="title">YunClient</span> <span class="title">YunServer</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">IPAddress</span> <span class="title">GSMClient</span> <span class="title">GSMModem</span> <span class="title">Keyboard</span> <span class="title">Ethernet</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">Console</span> <span class="title">GSMBand</span> <span class="title">Esplora</span> <span class="title">Stepper</span> <span class="title">Process</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">WiFiUDP</span> <span class="title">GSM_SMS</span> <span class="title">Mailbox</span> <span class="title">USBHost</span> <span class="title">Firmata</span> <span class="title">PImage</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">Client</span> <span class="title">Server</span> <span class="title">GSMPIN</span> <span class="title">FileIO</span> <span class="title">Bridge</span> <span class="title">Serial</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">EEPROM</span> <span class="title">Stream</span> <span class="title">Mouse</span> <span class="title">Audio</span> <span class="title">Servo</span> <span class="title">File</span> <span class="title">Task</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">GPRS</span> <span class="title">WiFi</span> <span class="title">Wire</span> <span class="title">TFT</span> <span class="title">GSM</span> <span class="title">SPI</span> <span class="title">SD</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">runShellCommandAsynchronously</span> <span class="title">analogWriteResolution</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">retrieveCallingNumber</span> <span class="title">printFirmwareVersion</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">analogReadResolution</span> <span class="title">sendDigitalPortPair</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">noListenOnLocalhost</span> <span class="title">readJoystickButton</span> <span class="title">setFirmwareVersion</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">readJoystickSwitch</span> <span class="title">scrollDisplayRight</span> <span class="title">getVoiceCallStatus</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">scrollDisplayLeft</span> <span class="title">writeMicroseconds</span> <span class="title">delayMicroseconds</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">beginTransmission</span> <span class="title">getSignalStrength</span> <span class="title">runAsynchronously</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">getAsynchronously</span> <span class="title">listenOnLocalhost</span> <span class="title">getCurrentCarrier</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">readAccelerometer</span> <span class="title">messageAvailable</span> <span class="title">sendDigitalPorts</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">lineFollowConfig</span> <span class="title">countryNameWrite</span> <span class="title">runShellCommand</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">readStringUntil</span> <span class="title">rewindDirectory</span> <span class="title">readTemperature</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">setClockDivider</span> <span class="title">readLightSensor</span> <span class="title">endTransmission</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">analogReference</span> <span class="title">detachInterrupt</span> <span class="title">countryNameRead</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">attachInterrupt</span> <span class="title">encryptionType</span> <span class="title">readBytesUntil</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">robotNameWrite</span> <span class="title">readMicrophone</span> <span class="title">robotNameRead</span> <span class="title">cityNameWrite</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">userNameWrite</span> <span class="title">readJoystickY</span> <span class="title">readJoystickX</span> <span class="title">mouseReleased</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">openNextFile</span> <span class="title">scanNetworks</span> <span class="title">noInterrupts</span> <span class="title">digitalWrite</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">beginSpeaker</span> <span class="title">mousePressed</span> <span class="title">isActionDone</span> <span class="title">mouseDragged</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">displayLogos</span> <span class="title">noAutoscroll</span> <span class="title">addParameter</span> <span class="title">remoteNumber</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">getModifiers</span> <span class="title">keyboardRead</span> <span class="title">userNameRead</span> <span class="title">waitContinue</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">processInput</span> <span class="title">parseCommand</span> <span class="title">printVersion</span> <span class="title">readNetworks</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">writeMessage</span> <span class="title">blinkVersion</span> <span class="title">cityNameRead</span> <span class="title">readMessage</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">setDataMode</span> <span class="title">parsePacket</span> <span class="title">isListening</span> <span class="title">setBitOrder</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">beginPacket</span> <span class="title">isDirectory</span> <span class="title">motorsWrite</span> <span class="title">drawCompass</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">digitalRead</span> <span class="title">clearScreen</span> <span class="title">serialEvent</span> <span class="title">rightToLeft</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">setTextSize</span> <span class="title">leftToRight</span> <span class="title">requestFrom</span> <span class="title">keyReleased</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">compassRead</span> <span class="title">analogWrite</span> <span class="title">interrupts</span> <span class="title">WiFiServer</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">disconnect</span> <span class="title">playMelody</span> <span class="title">parseFloat</span> <span class="title">autoscroll</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">getPINUsed</span> <span class="title">setPINUsed</span> <span class="title">setTimeout</span> <span class="title">sendAnalog</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">readSlider</span> <span class="title">analogRead</span> <span class="title">beginWrite</span> <span class="title">createChar</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">motorsStop</span> <span class="title">keyPressed</span> <span class="title">tempoWrite</span> <span class="title">readButton</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">subnetMask</span> <span class="title">debugPrint</span> <span class="title">macAddress</span> <span class="title">writeGreen</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">randomSeed</span> <span class="title">attachGPRS</span> <span class="title">readString</span> <span class="title">sendString</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">remotePort</span> <span class="title">releaseAll</span> <span class="title">mouseMoved</span> <span class="title">background</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">getXChange</span> <span class="title">getYChange</span> <span class="title">answerCall</span> <span class="title">getResult</span> ' +  </span></span><br><span class="line"><span class="function">	            '<span class="title">voiceCall</span> <span class="title">endPacket</span> <span class="title">constrain</span> <span class="title">getSocket</span> <span class="title">writeJSON</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">getButton</span> <span class="title">available</span> <span class="title">connected</span> <span class="title">findUntil</span> <span class="title">readBytes</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">exitValue</span> <span class="title">readGreen</span> <span class="title">writeBlue</span> <span class="title">startLoop</span> <span class="title">IPAddress</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">isPressed</span> <span class="title">sendSysex</span> <span class="title">pauseMode</span> <span class="title">gatewayIP</span> <span class="title">setCursor</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">getOemKey</span> <span class="title">tuneWrite</span> <span class="title">noDisplay</span> <span class="title">loadImage</span> <span class="title">switchPIN</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">onRequest</span> <span class="title">onReceive</span> <span class="title">changePIN</span> <span class="title">playFile</span> <span class="title">noBuffer</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">parseInt</span> <span class="title">overflow</span> <span class="title">checkPIN</span> <span class="title">knobRead</span> <span class="title">beginTFT</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">bitClear</span> <span class="title">updateIR</span> <span class="title">bitWrite</span> <span class="title">position</span> <span class="title">writeRGB</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">highByte</span> <span class="title">writeRed</span> <span class="title">setSpeed</span> <span class="title">readBlue</span> <span class="title">noStroke</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">remoteIP</span> <span class="title">transfer</span> <span class="title">shutdown</span> <span class="title">hangCall</span> <span class="title">beginSMS</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">endWrite</span> <span class="title">attached</span> <span class="title">maintain</span> <span class="title">noCursor</span> <span class="title">checkReg</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">checkPUK</span> <span class="title">shiftOut</span> <span class="title">isValid</span> <span class="title">shiftIn</span> <span class="title">pulseIn</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">connect</span> <span class="title">println</span> <span class="title">localIP</span> <span class="title">pinMode</span> <span class="title">getIMEI</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">display</span> <span class="title">noBlink</span> <span class="title">process</span> <span class="title">getBand</span> <span class="title">running</span> <span class="title">beginSD</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">drawBMP</span> <span class="title">lowByte</span> <span class="title">setBand</span> <span class="title">release</span> <span class="title">bitRead</span> <span class="title">prepare</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">pointTo</span> <span class="title">readRed</span> <span class="title">setMode</span> <span class="title">noFill</span> <span class="title">remove</span> <span class="title">listen</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">stroke</span> <span class="title">detach</span> <span class="title">attach</span> <span class="title">noTone</span> <span class="title">exists</span> <span class="title">buffer</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">height</span> <span class="title">bitSet</span> <span class="title">circle</span> <span class="title">config</span> <span class="title">cursor</span> <span class="title">random</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">IRread</span> <span class="title">setDNS</span> <span class="title">endSMS</span> <span class="title">getKey</span> <span class="title">micros</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">millis</span> <span class="title">begin</span> <span class="title">print</span> <span class="title">write</span> <span class="title">ready</span> <span class="title">flush</span> <span class="title">width</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">isPIN</span> <span class="title">blink</span> <span class="title">clear</span> <span class="title">press</span> <span class="title">mkdir</span> <span class="title">rmdir</span> <span class="title">close</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">point</span> <span class="title">yield</span> <span class="title">image</span> <span class="title">BSSID</span> <span class="title">click</span> <span class="title">delay</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">read</span> <span class="title">text</span> <span class="title">move</span> <span class="title">peek</span> <span class="title">beep</span> <span class="title">rect</span> <span class="title">line</span> <span class="title">open</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">seek</span> <span class="title">fill</span> <span class="title">size</span> <span class="title">turn</span> <span class="title">stop</span> <span class="title">home</span> <span class="title">find</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">step</span> <span class="title">tone</span> <span class="title">sqrt</span> <span class="title">RSSI</span> <span class="title">SSID</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">end</span> <span class="title">bit</span> <span class="title">tan</span> <span class="title">cos</span> <span class="title">sin</span> <span class="title">pow</span> <span class="title">map</span> <span class="title">abs</span> <span class="title">max</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">min</span> <span class="title">get</span> <span class="title">run</span> <span class="title">put</span>',</span></span><br><span class="line"><span class="function">	        <span class="title">symbol</span>: '<span class="title">DIGITAL_MESSAGE</span> <span class="title">FIRMATA_STRING</span> <span class="title">ANALOG_MESSAGE</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">REPORT_DIGITAL</span> <span class="title">REPORT_ANALOG</span> <span class="title">INPUT_PULLUP</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">SET_PIN_MODE</span> <span class="title">INTERNAL2V56</span> <span class="title">SYSTEM_RESET</span> <span class="title">LED_BUILTIN</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">INTERNAL1V1</span> <span class="title">SYSEX_START</span> <span class="title">INTERNAL</span> <span class="title">EXTERNAL</span> ' + </span></span><br><span class="line"><span class="function">	            '<span class="title">DEFAULT</span> <span class="title">OUTPUT</span> <span class="title">INPUT</span> <span class="title">HIGH</span> <span class="title">LOW</span>' </span></span><br><span class="line"><span class="function">	    &#125;,</span></span><br><span class="line">	    contains: [</span><br><span class="line">	      PREPROCESSOR,</span><br><span class="line">	      hljs.C_LINE_COMMENT_MODE,</span><br><span class="line">	      hljs.C_BLOCK_COMMENT_MODE,</span><br><span class="line">	      hljs.APOS_STRING_MODE,</span><br><span class="line">	      hljs.QUOTE_STRING_MODE,</span><br><span class="line">	      hljs.C_NUMBER_MODE</span><br><span class="line">	    ]</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="hexo-theme-hueman을-trasquilpeak-테마로-변경하기"><a href="#hexo-theme-hueman을-trasquilpeak-테마로-변경하기" class="headerlink" title="hexo-theme-hueman을 trasquilpeak 테마로 변경하기"></a>hexo-theme-hueman을 trasquilpeak 테마로 변경하기</h3><hr>
+<p>hexo에서 사용할 수 있는 테마는 <a href="https://hexo.io/themes/index.html" target="_blank" rel="noopener">공식사이트</a> 찾을 수 있습니다. </p>
+<ul>
+<li>transquilpeak 공식홈페이지](<a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak" target="_blank" rel="noopener">https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak</a>)</li>
+<li><a href="http://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/" target="_blank" rel="noopener">transquilpeak 샘플사이트</a></li>
+</ul>
+<h4 id="설치-과정"><a href="#설치-과정" class="headerlink" title="설치 과정"></a>설치 과정</h4><p>1.themes 폴더내에 테마파일을 받은후 압축 해제<br>2.테마 폴더 이름을 변경<br>3._config.yml 파일 내에 테마 설정 부분 변경 (theme: tranquilpeak)<br>4.hexo clean → hexo generate → hexo deploy)</p>
+<h4 id="transquilpeak-테마-커스터마이징"><a href="#transquilpeak-테마-커스터마이징" class="headerlink" title="transquilpeak 테마 커스터마이징"></a>transquilpeak 테마 커스터마이징</h4><p>다른 테마는 css나 js만 변경하면 간단히 수정되지만, transquilpeak의 경우 테마폴더에서 아래의 작업을 진행하여야 합니다.<br>1.npm install<br>2.bower install<br>3.css 나 js 변경<br>4.grunt build<br>5.hexo clean → hexo generate → hexo deploy</p>
+<h4 id="transquilpeak-테마-폰트-변경하기-웹폰트-적용하기"><a href="#transquilpeak-테마-폰트-변경하기-웹폰트-적용하기" class="headerlink" title="transquilpeak 테마 폰트 변경하기 (웹폰트 적용하기)"></a>transquilpeak 테마 폰트 변경하기 (웹폰트 적용하기)</h4><p>1.웹폰트 파일 import</p>
+<p>Tranquilpeak 테마에서 전체 css파일을 관리하는 tranquilpeak/source/_css/tranquilpeak.scss 파일을 열어 가장 마지막에 다음과 같이 사용할 웹폰트(본고딕과 나눔고딕) url을 추가해줍니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@import</span><br><span class="line">	url(http://fonts.googleapis.com/earlyaccess/notosanskr.css),</span><br><span class="line">	url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);</span><br></pre></td></tr></table></figure>
+<p>2.폰트 적용 부분을 수정</p>
+<p>tranquilpeak/source/_css/utils/＿variables.scss 파일 윗 부분에 font-family를 위한 변수 정의 부분에 아래와 같이 사용할 웹폰트를 추가해줍니다. 위에서 추가해준 본고딕을 noto-sans-kr로, 나눔고딕코딩을 nanum-gothic-coding으로 정의해주었습니다. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$noto</span>-sans-kr:          <span class="string">'Noto Sans KR'</span>, sans-serif;</span><br><span class="line"><span class="variable">$nanum</span>-gothic-coding:   <span class="string">'Nanum Gothic Coding'</span>, monospace;</span><br></pre></td></tr></table></figure>
+<p>3.Web font variables</p>
+<p>이후에 기본 폰트 설정 값을 open-sans-sans-serif에서 아래와 같이 noto-sans-kr로 변경해주었습니다.</p>
+<p>4.Default font</p>
+<p>이후에 사이트 전체의 font를 바꾸어 줍니다. 아래와 같이 $font-families에 있는 값들을 수정해주면 됩니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="variable">$font</span>-families: (</span><br><span class="line">   // base</span><br><span class="line">   <span class="string">'headings'</span>:          <span class="variable">$open</span>-sans-sans-serif,</span><br><span class="line">   // components</span><br><span class="line">   <span class="string">'code'</span>:              <span class="variable">$menlo</span>,</span><br><span class="line">   <span class="string">'caption'</span>:           <span class="variable">$merriweather</span>-serif,</span><br><span class="line">   <span class="string">'image-gallery'</span>:     <span class="variable">$open</span>-sans,</span><br><span class="line">   <span class="string">'post-header-cover'</span>: <span class="variable">$merriweather</span>-serif,</span><br><span class="line">   <span class="string">'post-meta'</span>:         <span class="variable">$open</span>-sans-sans-serif,</span><br><span class="line">   <span class="string">'post-content'</span>:      <span class="variable">$merriweather</span>-serif,</span><br><span class="line">   <span class="string">'post-excerpt-link'</span>: <span class="variable">$open</span>-sans-sans-serif,</span><br><span class="line">   <span class="string">'highlight'</span>:         <span class="variable">$menlo</span>,</span><br><span class="line">   // layout</span><br><span class="line">   <span class="string">'sidebar'</span>:           <span class="variable">$open</span>-sans-sans-serif</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>5.Font families Web</p>
+<p>코드 및 하이라이트 부분엔 나눔고딕코딩을, 이외 모든 부분엔 본고딕을 적용했습니다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://chemidot.github.io/2017/09/30/2017-09-30-Hexo-on-Windows-10/" data-id="cjv23k7ie004p1kb9qc9s7f3s" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "chemidot"
+        },
+        "headline": "Hexo on Windows 10",
+        "image": "http://chemidot.github.io",
+        "keywords": "Hexo",
+        "genre": "알쓸신잡",
+        "datePublished": "2017-09-30",
+        "dateCreated": "2017-09-30",
+        "dateModified": "2017-11-25",
+        "url": "http://chemidot.github.io/2017/09/30/2017-09-30-Hexo-on-Windows-10/",
+        "description": "Hexo
+github 서버를 이용하는 마크다운 블로그 프레임입니다. 지금 사용하는 블로그도 hexo를 사용하여 만들어져 있는데요. 티스토리, 워드프레스를 거쳐서 hexo로 정착하였습니다. 티스토리는 수년간 사용할 정도로 큰 문제는 없었어요. 그런데, 무슨 이유에서인지 자체 백업기능을 삭제해버려서 살짝 걱정이 되더라고요. 그래서 중간에 워드프레스로 이전을 했"
+        "wordCount": 5214
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/10/01/2017-10-01-상하이의-전기요금-계산방법/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            상하이의 전기요금 계산방법
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/09/30/2017-11-10-네이버-Billboard.js-on-Hexo/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">hexo-theme-hueman에 Naver Billboard.js 적용하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/irAO9rT.jpg)" alt="Bluetooth 4WD" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="title">Bluetooth 4WD</a></p>
+                            <p class="item-date"><time datetime="2018-10-11T09:27:53.000Z" itemprop="datePublished">2018-10-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://imgur.com/B1dxP00.jpg)" alt="Bluetooth 4WD Controller" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="title">Bluetooth 4WD Controller</a></p>
+                            <p class="item-date"><time datetime="2018-10-10T09:27:53.000Z" itemprop="datePublished">2018-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/Lbo12LG.jpg)" alt="Bluetooth 페어링" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="title">Bluetooth 페어링</a></p>
+                            <p class="item-date"><time datetime="2018-10-09T09:27:53.000Z" itemprop="datePublished">2018-10-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/31/2018-01-31-연수기-DIY/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/4dgI0uA.png)" alt="연수기 DIY" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/알쓸신잡/">알쓸신잡</a></p>
+                            <p class="item-title"><a href="/2018/01/31/2018-01-31-연수기-DIY/" class="title">연수기 DIY</a></p>
+                            <p class="item-date"><time datetime="2018-01-31T09:27:53.000Z" itemprop="datePublished">2018-01-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/미니노트/">미니노트</a></p>
+                            <p class="item-title"><a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="title">캘리그래피 노트 2017-2학기</a></p>
+                            <p class="item-date"><time datetime="2017-12-10T09:27:53.000Z" itemprop="datePublished">2017-12-10</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/과학/">과학</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/놀이터/">놀이터</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미니노트/">미니노트</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/알쓸신잡/">알쓸신잡</a><span class="category-list-count">18</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10월 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">1월 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">10월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">4월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">12월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">11월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">12월 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">10월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">7월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">3월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">7월 2009</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/">DIY</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LG070/">LG070</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/beijing/">beijing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/billboard/">billboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/china/">china</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hongkong/">hongkong</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kisb/">kisb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shanghai/">shanghai</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sks/">sks</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/생활/">생활</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/스마트폰/">스마트폰</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/재외국민/">재외국민</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/전기요금/">전기요금</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/캘리그래피/">캘리그래피</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/화학/">화학</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Arduino/" style="font-size: 20px;">Arduino</a> <a href="/tags/DIY/" style="font-size: 13.33px;">DIY</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/LG070/" style="font-size: 10px;">LG070</a> <a href="/tags/beijing/" style="font-size: 13.33px;">beijing</a> <a href="/tags/billboard/" style="font-size: 10px;">billboard</a> <a href="/tags/china/" style="font-size: 20px;">china</a> <a href="/tags/hongkong/" style="font-size: 10px;">hongkong</a> <a href="/tags/kisb/" style="font-size: 13.33px;">kisb</a> <a href="/tags/shanghai/" style="font-size: 10px;">shanghai</a> <a href="/tags/sks/" style="font-size: 13.33px;">sks</a> <a href="/tags/생활/" style="font-size: 13.33px;">생활</a> <a href="/tags/스마트폰/" style="font-size: 16.67px;">스마트폰</a> <a href="/tags/재외국민/" style="font-size: 10px;">재외국민</a> <a href="/tags/전기요금/" style="font-size: 13.33px;">전기요금</a> <a href="/tags/캘리그래피/" style="font-size: 13.33px;">캘리그래피</a> <a href="/tags/화학/" style="font-size: 10px;">화학</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 chemidot</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://chemidot.github.io/2017/09/30/2017-09-30-Hexo-on-Windows-10/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>IR 리모컨 | de la Cruz</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Arduino">
+    
+    <meta name="description" content="IR 리모컨 무선 신호를 통해 아두이노를 컨트롤하는 방법에는 여러가지가 있어요. 그중에서 가장 기본이면서, 생활속에서 가장 밀접하게 쓰이는 IR(적외선) 리모컨의 사용에 대해서 알아보겠습니다. 리모컨 작동을 위해서는 기본적으로 IR신호를 내보내는 리모컨본체와, 이 본체에서 내보내는 신호를 받아들이는 IR 리시버가 필요합니다.  회로도 위 그림에서 IR 리시">
+<meta name="keywords" content="Arduino">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IR 리모컨">
+<meta property="og:url" content="http://chemidot.github.io/2017/11/23/2017-11-23-IR-리모컨/index.html">
+<meta property="og:site_name" content="de la Cruz">
+<meta property="og:description" content="IR 리모컨 무선 신호를 통해 아두이노를 컨트롤하는 방법에는 여러가지가 있어요. 그중에서 가장 기본이면서, 생활속에서 가장 밀접하게 쓰이는 IR(적외선) 리모컨의 사용에 대해서 알아보겠습니다. 리모컨 작동을 위해서는 기본적으로 IR신호를 내보내는 리모컨본체와, 이 본체에서 내보내는 신호를 받아들이는 IR 리시버가 필요합니다.  회로도 위 그림에서 IR 리시">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://i.imgur.com/K4OqbMJ.jpg">
+<meta property="og:updated_time" content="2017-12-03T11:20:28.228Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IR 리모컨">
+<meta name="twitter:description" content="IR 리모컨 무선 신호를 통해 아두이노를 컨트롤하는 방법에는 여러가지가 있어요. 그중에서 가장 기본이면서, 생활속에서 가장 밀접하게 쓰이는 IR(적외선) 리모컨의 사용에 대해서 알아보겠습니다. 리모컨 작동을 위해서는 기본적으로 IR신호를 내보내는 리모컨본체와, 이 본체에서 내보내는 신호를 받아들이는 IR 리시버가 필요합니다.  회로도 위 그림에서 IR 리시">
+<meta name="twitter:image" content="https://i.imgur.com/K4OqbMJ.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="de la Cruz" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">a la fecha</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/과학/">과학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/놀이터/">놀이터</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/미니노트/">미니노트</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알쓸신잡/">알쓸신잡</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/렛츠아두이노/">렛츠아두이노</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2017-11-23-IR-리모컨" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        IR 리모컨
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/11/23/2017-11-23-IR-리모컨/" class="article-date">
+            <time datetime="2017-11-23T09:27:53.000Z" itemprop="datePublished">2017-11-23</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Arduino/">Arduino</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="IR-리모컨"><a href="#IR-리모컨" class="headerlink" title="IR 리모컨"></a>IR 리모컨</h3><hr>
+<p>무선 신호를 통해 아두이노를 컨트롤하는 방법에는 여러가지가 있어요. 그중에서 가장 기본이면서, 생활속에서 가장 밀접하게 쓰이는 IR(적외선) 리모컨의 사용에 대해서 알아보겠습니다. 리모컨 작동을 위해서는 기본적으로 IR신호를 내보내는 리모컨본체와, 이 본체에서 내보내는 신호를 받아들이는 IR 리시버가 필요합니다. </p>
+<h4 id="회로도"><a href="#회로도" class="headerlink" title="회로도"></a>회로도</h4><p><img src="https://i.imgur.com/K4OqbMJ.jpg" alt="IR Remote"></p>
+<p>위 그림에서 IR 리시버에 있는 핀은 모듈이 아닌 단일 부품형태의 리시버 일때 핀의 순서입니다. 그런데 보통 아두이노 학습용으로 판매하는 IR 리시버는 브레드보드에 바로 붙일 수 있도록 조그만 PCB가 달린 모듈의 형태로 판매되는 경우가 많아요. 그런 경우에는 PCB보드에 써있는 글씨를 보고 아두이노에 연결해야 합니다.</p>
+<h4 id="Pin-Map"><a href="#Pin-Map" class="headerlink" title="Pin Map"></a>Pin Map</h4><table>
+<thead>
+<tr>
+<th>Arduino</th>
+<th>IR Reciever</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td>S (Signal)</td>
+</tr>
+<tr>
+<td>5V</td>
+<td>-</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="IRremote-라이브러리-추가하기"><a href="#IRremote-라이브러리-추가하기" class="headerlink" title="IRremote 라이브러리 추가하기"></a>IRremote 라이브러리 추가하기</h4><p>IR 리모컨에 필요한 라이브러리는 <a href="https://github.com/z3t0/Arduino-IRremote" target="_blank" rel="noopener">여기</a>에서 다운 받을 수 있습니다. </p>
+<p><code>스케치</code> → <code>라이브러리 포함하기</code> → <code>ZIP 라이브러리 추가</code>에서 다운 받은 파일을 선택한 뒤</p>
+<p><code>스케치</code> → <code>라이브러리 포함하기</code> →<code>IRremote</code> 를 선택하면</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boarddefs.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;IRremote.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;IRremoteInt.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ir_Lego_PF_BitStreamEncoder.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>위 헤더파일이 스케치에 추가되며, 이렇게 라이브러리를 추가해 주어야 IR 리모컨을 사용할 수 있습니다. (아두이노 IDE에 기본적으로 포함되어있는 RobotIRremote 라이브러리는 삭제합니다.)</p>
+<h4 id="리모컨-버튼의-HEX값-알아내기"><a href="#리모컨-버튼의-HEX값-알아내기" class="headerlink" title="리모컨 버튼의 HEX값 알아내기"></a>리모컨 버튼의 HEX값 알아내기</h4><p>리모컨을 사용하기 위해서는 보유하고 있는 리모컨 각 버튼의 HEX값을 알아야 합니다. 이를 위해 우선 예제하나를 업로드합니다. 사용하는 예제는</p>
+<p><code>예제</code> → <code>IRremote</code> → <code>IRrevcDumpV2</code> 입니다. 시리얼 모니터를 열고 IR수신기를 향하여 리모컨 버튼을 누르면 각 버튼의 HEX값과 그 밖의 고유정보가 표시됩니다. 여러가지 복잡한 값이 출력되지만, 중요한 것은 맨 마지막줄에 출력되는 unsigned int data 값이에요. 이것을 잘 적어둡니다.</p>
+<p>혹은 아래 스케치를 사용하면 간단하게 HEX값만 출력됩니다.</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boarddefs.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;IRremote.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;IRremoteInt.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ir_Lego_PF_BitStreamEncoder.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> RECV_PIN  = <span class="number">11</span>;                      <span class="comment">// IR 리시버 핀 설정</span></span><br><span class="line">IRrecv irrecv(RECV_PIN);                 <span class="comment">// IR 리시버 선언</span></span><br><span class="line">decode_results results;                  <span class="comment">// 수신결과 저장</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  irrecv.enableIRIn();                   <span class="comment">// IR 리시버 시작</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>() &#123;</span><br><span class="line">  <span class="function">if</span>(irrecv.decode(&amp;results)) &#123;          <span class="comment">// 리시버가 받은 값이 있으면</span></span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">print</span>(<span class="string">"0x"</span>);</span><br><span class="line">    <span class="built_in">Serial</span>.<span class="built_in">println</span>(results.value, HEX);  <span class="comment">// 버튼 HEX값을 콘솔에 출력</span></span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">500</span>);</span><br><span class="line"></span><br><span class="line">    irrecv.resume();                     <span class="comment">// 다음 값을 받기 위해 준비</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>실제 보유하고 있는 리모컨(XA5-14)의 정보는 다음과 같아요. 일단 리모컨 타입은 NEC타입이고,</p>
+<table>
+<thead>
+<tr>
+<th>Remote Button</th>
+<th>unsigned int data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0xFFA25D</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0XFF629D</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0XFFE21D</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0XFF22DD</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0XFF02FD</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0XFFC23D</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0XFFE01F</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0XFFA857</td>
+</tr>
+<tr>
+<td>9</td>
+<td>0XFF906F</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0XFF9867</td>
+</tr>
+<tr>
+<td>*</td>
+<td>0XFF6897</td>
+</tr>
+<tr>
+<td>#</td>
+<td>0XFFB04F</td>
+</tr>
+<tr>
+<td>▲</td>
+<td>0XFF18E7</td>
+</tr>
+<tr>
+<td>▼</td>
+<td>0XFFA4B5</td>
+</tr>
+<tr>
+<td>◀</td>
+<td>0XFF10EF</td>
+</tr>
+<tr>
+<td>▶</td>
+<td>0XFF5AA5</td>
+</tr>
+<tr>
+<td>OK</td>
+<td>0XFF38C7</td>
+</tr>
+</tbody>
+</table>
+<p>보유하고 있는 리모컨의 종류마다 HEX값이 다르므로, HEX값은 다를 수 있습니다.</p>
+<h4 id="sketch"><a href="#sketch" class="headerlink" title="sketch"></a>sketch</h4><p>각 버튼의 Code값을 알아냈으면, 이것을 실제 스케치에서 사용할 때, 각 버튼을 정의하는 값으로 사용합니다. </p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_1 0xFFA25D</span></span><br></pre></td></tr></table></figure>
+<p>이런 방법으로 각 버튼의 HEX값을 정의합니다. 버튼이 보통 10~20개 정도 되요. 귀찮아도 모두 정의를 해야합니다. 배열을 사용하는 것도 좋은 방법이 되겠네요. 그리고, 별도의 리모컨이 없으면 집에서 사용하는 리모컨을 사용해도 상관없습니다.</p>
+<p>아래 스케치는 리모컨에서 입력한 버튼을 시리얼 모니터로 출력하는 간단한 예제입니다. 시리얼 모니터는</p>
+<p><code>툴</code> → <code>시리얼 모니터</code>를 선택하거나 <code>Ctrl-Shift-M</code>을 눌러 모니터 창을 띄울 수 있습니다.</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boarddefs.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;IRremote.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;IRremoteInt.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ir_Lego_PF_BitStreamEncoder.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_1 0xFFA25D</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_2 0xFF629D</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_3 0xFFE21D</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_4 0xFF22DD</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_5 0xFF02FD</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_6 0xFFC23D</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_7 0xFFE01F</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_8 0xFFA857</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_9 0xFF906F</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_0 0xFF9867</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_A 0xFF6897  <span class="comment">// * Asterisk Button</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_P 0xFFB04F  <span class="comment">// # Pound Button</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_U 0xFF18E7  <span class="comment">// Up Button</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_D 0xFF4AB5  <span class="comment">// Down Button</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_L 0xFF10EF  <span class="comment">// Left Button</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_R 0xFF5AA5  <span class="comment">// Right Button</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_O 0xFF38C7  <span class="comment">// OK Button</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> recvPin = <span class="number">11</span>;</span><br><span class="line">IRrecv irrecv(recvPin);</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123;</span><br><span class="line">  <span class="built_in">Serial</span>.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  irrecv.enableIRIn();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>() &#123;</span><br><span class="line">  decode_results results;</span><br><span class="line">  </span><br><span class="line">  <span class="function">if</span>(irrecv.decode(&amp;results)) &#123;</span><br><span class="line">    <span class="function">switch</span>(results.value) &#123;</span><br><span class="line">      <span class="function">case</span> BTN_0 :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"0"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_1 :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"1"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_2 :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"2"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_3 :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"3"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_4 :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"4"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_5 :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"5"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_6 :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"6"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_7 :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"7"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_8 :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"8"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_9 :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"9"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_A :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"*"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_P :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"#"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_U :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"Up"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_D :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"Down"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_L :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"Left"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_R :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"Right"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_O :</span><br><span class="line">        <span class="built_in">Serial</span>.<span class="built_in">println</span>(<span class="string">"OK"</span>);</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">500</span>);</span><br><span class="line">    irrecv.resume();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="리모컨으로-서보모터-회전시키기"><a href="#리모컨으로-서보모터-회전시키기" class="headerlink" title="리모컨으로 서보모터 회전시키기"></a>리모컨으로 서보모터 회전시키기</h3><hr>
+<h4 id="회로도-1"><a href="#회로도-1" class="headerlink" title="회로도"></a>회로도</h4><p><img src="https://i.imgur.com/g9etimM.jpg" alt="IR Remote로 Servo Motor 컨트롤 하기"></p>
+<h4 id="sketch-1"><a href="#sketch-1" class="headerlink" title="sketch"></a>sketch</h4><p>리모컨 버튼에 따라 서버모터가 회전하는 스케치입니다. 간단하게 3개의 버튼만 정의하였습니다.</p>
+<ul>
+<li>Left 버튼을 누르면 5도 감소</li>
+<li>Right 버튼을 누르면 5도 증가</li>
+<li>OK 버튼을 누르면 0도 위치로 이동</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Servo.h&gt;</span></span></span><br><span class="line"><span class="built_in">Servo</span> servomotor;</span><br><span class="line"><span class="keyword">int</span> servomotorPin = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;boarddefs.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;IRremote.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;IRremoteInt.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ir_Lego_PF_BitStreamEncoder.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_1 0xFFA25D</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_2 0xFF629D</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_3 0xFFE21D</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_4 0xFF22DD</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_5 0xFF02FD</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_6 0xFFC23D</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_7 0xFFE01F</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_8 0xFFA857</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_9 0xFF906F</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_0 0xFF9867</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_A 0xFF6897  <span class="comment">// * Asterisk Button</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_P 0xFFB04F  <span class="comment">// # Pound Button</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_U 0xFF18E7  <span class="comment">// Up Button</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_D 0xFF4AB5  <span class="comment">// Down Button</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_L 0xFF10EF  <span class="comment">// Left Button</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_R 0xFF5AA5  <span class="comment">// Right Button</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BTN_O 0xFF38C7  <span class="comment">// OK Button</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> recvPin = <span class="number">11</span>;</span><br><span class="line">IRrecv irrecv(recvPin);</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">setup</span>() &#123;</span><br><span class="line">  servomotor.<span class="built_in">attach</span>(servomotorPin);</span><br><span class="line">  irrecv.enableIRIn();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function">loop</span>() &#123;</span><br><span class="line">  decode_results results;</span><br><span class="line">  </span><br><span class="line">  <span class="function">if</span>(irrecv.decode(&amp;results)) &#123;</span><br><span class="line">    <span class="function">switch</span>(results.value) &#123;</span><br><span class="line">      <span class="function">case</span> BTN_O :</span><br><span class="line">        a = <span class="number">0</span>;</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_L :</span><br><span class="line">        <span class="function">if</span>(a &gt; <span class="number">5</span>) &#123;</span><br><span class="line">          a = a - <span class="number">5</span>;     <span class="comment">// 서버모터 5도씩 감소</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">else</span></span><br><span class="line">        &#123;</span><br><span class="line">          a = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">      <span class="function">case</span> BTN_R :</span><br><span class="line">        <span class="function">if</span>(a &lt; <span class="number">175</span>) &#123;</span><br><span class="line">          a = a + <span class="number">5</span>;     <span class="comment">// 서버모터 5도씩 증가</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">else</span></span><br><span class="line">        &#123;</span><br><span class="line">          a = <span class="number">180</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    servomotor.<span class="built_in">write</span>(a);</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">500</span>);</span><br><span class="line">    irrecv.resume();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://chemidot.github.io/2017/11/23/2017-11-23-IR-리모컨/" data-id="cjv23k7hi003z1kb9qkpobxva" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "chemidot"
+        },
+        "headline": "IR 리모컨",
+        "image": "http://chemidot.github.iohttps://i.imgur.com/K4OqbMJ.jpg",
+        "keywords": "Arduino",
+        "genre": "렛츠아두이노",
+        "datePublished": "2017-11-23",
+        "dateCreated": "2017-11-23",
+        "dateModified": "2017-12-03",
+        "url": "http://chemidot.github.io/2017/11/23/2017-11-23-IR-리모컨/",
+        "description": "IR 리모컨
+무선 신호를 통해 아두이노를 컨트롤하는 방법에는 여러가지가 있어요. 그중에서 가장 기본이면서, 생활속에서 가장 밀접하게 쓰이는 IR(적외선) 리모컨의 사용에 대해서 알아보겠습니다. 리모컨 작동을 위해서는 기본적으로 IR신호를 내보내는 리모컨본체와, 이 본체에서 내보내는 신호를 받아들이는 IR 리시버가 필요합니다. 
+회로도
+위 그림에서 IR 리시"
+        "wordCount": 2076
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/11/27/2017-11-27-온습도센서-DHT11/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            온습도센서 DHT11 사용하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/11/22/2017-11-22-2018학년도-SKS신임교사-준비서류-하루만에-준비하기-in-서울/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">2018학년도 SKS신임교사 서류 준비하기 AtoZ</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/irAO9rT.jpg)" alt="Bluetooth 4WD" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/11/2018-10-11-Bluetooth-4WD/" class="title">Bluetooth 4WD</a></p>
+                            <p class="item-date"><time datetime="2018-10-11T09:27:53.000Z" itemprop="datePublished">2018-10-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://imgur.com/B1dxP00.jpg)" alt="Bluetooth 4WD Controller" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/10/2018-10-10-Bluetooth-4WD-Controller/" class="title">Bluetooth 4WD Controller</a></p>
+                            <p class="item-date"><time datetime="2018-10-10T09:27:53.000Z" itemprop="datePublished">2018-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/Lbo12LG.jpg)" alt="Bluetooth 페어링" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/렛츠아두이노/">렛츠아두이노</a></p>
+                            <p class="item-title"><a href="/2018/10/09/2018-10-09-Bluetooth-페어링/" class="title">Bluetooth 페어링</a></p>
+                            <p class="item-date"><time datetime="2018-10-09T09:27:53.000Z" itemprop="datePublished">2018-10-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/31/2018-01-31-연수기-DIY/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/4dgI0uA.png)" alt="연수기 DIY" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/알쓸신잡/">알쓸신잡</a></p>
+                            <p class="item-title"><a href="/2018/01/31/2018-01-31-연수기-DIY/" class="title">연수기 DIY</a></p>
+                            <p class="item-date"><time datetime="2018-01-31T09:27:53.000Z" itemprop="datePublished">2018-01-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/미니노트/">미니노트</a></p>
+                            <p class="item-title"><a href="/2017/12/10/2017-12-10-캘리그래피-노트-2017-2학기/" class="title">캘리그래피 노트 2017-2학기</a></p>
+                            <p class="item-date"><time datetime="2017-12-10T09:27:53.000Z" itemprop="datePublished">2017-12-10</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/과학/">과학</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/놀이터/">놀이터</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/렛츠아두이노/">렛츠아두이노</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미니노트/">미니노트</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/알쓸신잡/">알쓸신잡</a><span class="category-list-count">18</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10월 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">1월 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">10월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">4월 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">12월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">11월 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">12월 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">10월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">7월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">3월 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">7월 2009</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/">Arduino</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/">DIY</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LG070/">LG070</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/beijing/">beijing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/billboard/">billboard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/china/">china</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hongkong/">hongkong</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kisb/">kisb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shanghai/">shanghai</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sks/">sks</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/생활/">생활</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/스마트폰/">스마트폰</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/재외국민/">재외국민</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/전기요금/">전기요금</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/캘리그래피/">캘리그래피</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/화학/">화학</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Arduino/" style="font-size: 20px;">Arduino</a> <a href="/tags/DIY/" style="font-size: 13.33px;">DIY</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/LG070/" style="font-size: 10px;">LG070</a> <a href="/tags/beijing/" style="font-size: 13.33px;">beijing</a> <a href="/tags/billboard/" style="font-size: 10px;">billboard</a> <a href="/tags/china/" style="font-size: 20px;">china</a> <a href="/tags/hongkong/" style="font-size: 10px;">hongkong</a> <a href="/tags/kisb/" style="font-size: 13.33px;">kisb</a> <a href="/tags/shanghai/" style="font-size: 10px;">shanghai</a> <a href="/tags/sks/" style="font-size: 13.33px;">sks</a> <a href="/tags/생활/" style="font-size: 13.33px;">생활</a> <a href="/tags/스마트폰/" style="font-size: 16.67px;">스마트폰</a> <a href="/tags/재외국민/" style="font-size: 10px;">재외국민</a> <a href="/tags/전기요금/" style="font-size: 13.33px;">전기요금</a> <a href="/tags/캘리그래피/" style="font-size: 13.33px;">캘리그래피</a> <a href="/tags/화학/" style="font-size: 10px;">화학</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 chemidot</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://chemidot.github.io/2017/11/23/2017-11-23-IR-리모컨/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    </div>
+</body>
+</html>
